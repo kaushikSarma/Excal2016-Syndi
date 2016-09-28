@@ -1,7 +1,5 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="f:\programming\c#\syndi\syndi\obj\debug\intermediatexaml\syndi.exe" HashGuid="87537723-924e-f305-3bc9-fb4a0d99f6c5" />
-    <ReferenceAssembly PathName="f:\programming\c#\syndi\packages\drawerlayout.1.0.4\lib\drawerlayout.dll" HashGuid="b0d3b3f8-90b7-6a66-b416-66f64dcf26fa" />
-    <ReferenceAssembly PathName="c:\program files (x86)\reference assemblies\microsoft\framework\.netframework\v4.0\system.directoryservices.dll" HashGuid="d662265c-4da2-0884-e815-386fe53e8eb3" />
+    <LocalAssembly PathName="f:\programming\c#\syndi\syndi\obj\debug\intermediatexaml\syndi.exe" HashGuid="51cd6f1f-5288-9b55-9b5c-ebd6a4ea0f36" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

@@ -22,17 +22,13 @@
     <AppXManifest Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-09-28T15:42:41.087</Modified>
+      <Modified>2016-09-28T19:02:01.327</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\Syndi.exe">
       <PackagePath>Syndi.exe</PackagePath>
-      <Modified>2016-09-28T15:58:24.507</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Programming\C#\Syndi\packages\DrawerLayout.1.0.4\lib\DrawerLayout.dll">
-      <PackagePath>DrawerLayout.dll</PackagePath>
-      <Modified>2016-09-27T16:34:13.297</Modified>
+      <Modified>2016-09-28T19:02:00.887</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\Icons\home.png">
       <PackagePath>Assets\Icons\home.png</PackagePath>
@@ -88,7 +84,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2016-09-28T15:54:13.987</Modified>
+      <Modified>2016-09-28T19:02:00.714</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\SharePage.xbf">
       <PackagePath>SharePage.xbf</PackagePath>
@@ -96,7 +92,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-09-28T15:42:40.699</Modified>
+      <Modified>2016-09-28T19:02:01.049</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

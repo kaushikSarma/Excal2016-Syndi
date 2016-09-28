@@ -30,9 +30,6 @@ F:\Programming\C#\Syndi\Syndi\obj\Debug\qualifiers.txt
 F:\Programming\C#\Syndi\Syndi\obj\Debug\qualifiers.txt.intermediate
 F:\Programming\C#\Syndi\Syndi\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 F:\Programming\C#\Syndi\Syndi\obj\Debug\ProjectArchitectures.txt
-F:\Programming\C#\Syndi\Syndi\bin\Debug\DrawerLayout.dll
-F:\Programming\C#\Syndi\Syndi\obj\Debug\Syndi.csprojResolveAssemblyReference.cache
-F:\Programming\C#\Syndi\Syndi\obj\Debug\Syndi.csproj.GenerateResource.Cache
 F:\Programming\C#\Syndi\Syndi\obj\Debug\SharePage.g.i.cs
 F:\Programming\C#\Syndi\Syndi\obj\Debug\SharePage.g.cs
 F:\Programming\C#\Syndi\Syndi\bin\Debug\SharePage.xbf

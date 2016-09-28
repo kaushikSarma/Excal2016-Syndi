@@ -21,9 +21,6 @@
     <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\Syndi.exe">
       <PackagePath>Syndi.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Programming\C#\Syndi\packages\DrawerLayout.1.0.4\lib\DrawerLayout.dll">
-      <PackagePath>DrawerLayout.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\Icons\home.png">
       <PackagePath>Assets\Icons\home.png</PackagePath>
     </AppxPackagedFile>
