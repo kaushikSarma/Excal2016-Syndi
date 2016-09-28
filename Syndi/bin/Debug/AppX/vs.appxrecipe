@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>THOUGHT-PLANE-0</Machine>
+    <WindowsUser>Kaushik</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows 8.1</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>a9b9bf52-18b5-403a-a496-97d7d1238f56</PackageIdentityName>
+    <IntermediateOutputPath>F:\Programming\C#\Syndi\Syndi\obj\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>E1019F4036D47C68B3A870959F43810DFE487862D9D281A4569A76AC0D2FB12B</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>a9b9bf52-18b5-403a-a496-97d7d1238f56_1.0.0.0_neutral__j42pzb23x9j8j</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>a9b9bf52-18b5-403a-a496-97d7d1238f56_j42pzb23x9j8j!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>a9b9bf52-18b5-403a-a496-97d7d1238f56</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Kaushik</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-09-28T15:42:41.087</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\Syndi.exe">
+      <PackagePath>Syndi.exe</PackagePath>
+      <Modified>2016-09-28T15:58:24.507</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\packages\DrawerLayout.1.0.4\lib\DrawerLayout.dll">
+      <PackagePath>DrawerLayout.dll</PackagePath>
+      <Modified>2016-09-27T16:34:13.297</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\Icons\home.png">
+      <PackagePath>Assets\Icons\home.png</PackagePath>
+      <Modified>2016-09-28T15:36:17.900</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-06T16:31:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\Icons\menu.png">
+      <PackagePath>Assets\Icons\menu.png</PackagePath>
+      <Modified>2016-09-28T15:36:17.925</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\Icons\molecule.png">
+      <PackagePath>Assets\Icons\molecule.png</PackagePath>
+      <Modified>2016-09-28T15:36:17.933</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\Icons\reload.png">
+      <PackagePath>Assets\Icons\reload.png</PackagePath>
+      <Modified>2016-09-28T15:36:17.954</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\Icons\search.png">
+      <PackagePath>Assets\Icons\search.png</PackagePath>
+      <Modified>2016-09-28T15:36:17.974</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-06T16:31:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-09-28T16:03:11.364</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-06T16:31:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\Assets\SyndiIcon.png">
+      <PackagePath>Assets\SyndiIcon.png</PackagePath>
+      <Modified>2016-09-27T21:21:46.780</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\Syndi.xr.xml">
+      <PackagePath>Syndi.xr.xml</PackagePath>
+      <Modified>2016-09-28T15:51:18.271</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2016-09-27T16:17:50.733</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2016-09-28T15:54:13.987</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\SharePage.xbf">
+      <PackagePath>SharePage.xbf</PackagePath>
+      <Modified>2016-09-28T15:54:13.993</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Programming\C#\Syndi\Syndi\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2016-09-28T15:42:40.699</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
