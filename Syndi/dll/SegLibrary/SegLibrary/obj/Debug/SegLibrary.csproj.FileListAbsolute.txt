@@ -1,0 +1,5 @@
+c:\users\ankit\documents\visual studio 2015\Projects\SegLibrary\SegLibrary\bin\Debug\SegLibrary.dll
+c:\users\ankit\documents\visual studio 2015\Projects\SegLibrary\SegLibrary\bin\Debug\SegLibrary.pdb
+c:\users\ankit\documents\visual studio 2015\Projects\SegLibrary\SegLibrary\obj\Debug\SegLibrary.csprojResolveAssemblyReference.cache
+c:\users\ankit\documents\visual studio 2015\Projects\SegLibrary\SegLibrary\obj\Debug\SegLibrary.dll
+c:\users\ankit\documents\visual studio 2015\Projects\SegLibrary\SegLibrary\obj\Debug\SegLibrary.pdb
