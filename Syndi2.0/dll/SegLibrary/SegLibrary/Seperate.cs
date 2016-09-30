@@ -10,7 +10,7 @@ namespace SegLibrary
 {
     public class Seperate
     {
-        static List<string> GetVideos(string path)
+        public static List<string> GetVideos(string path)
         {
             List<string> result = new List<string>();
             var regex = new Regex(@".*\.(mp4|avi|asf|mov|qt|flv|swf|avchd|kmp)", RegexOptions.IgnoreCase);
@@ -18,7 +18,7 @@ namespace SegLibrary
             DirSearch(path, regex, result);
             return result;
         }
-        static List<string> GetImages(string path)
+        public static List<string> GetImages(string path)
         {
             List<string> result = new List<string>();
             var regex = new Regex(@".*\.(ani|bmp|cal|fax|gif|img|jbg|jpe|jpeg|mac|pbm|pcd|pcx|pct|pgm|png|ppm|psd|ras|tga|tiff|wmf)", RegexOptions.IgnoreCase);
@@ -26,7 +26,7 @@ namespace SegLibrary
             DirSearch(path, regex, result);
             return result;
         }
-        static List<string> GetDocs(string path)
+        public static List<string> GetDocs(string path)
         {
             List<string> result = new List<string>();
             var regex = new Regex(@".*\.(docx|xls|txt|pdf|doc|ppt|one|pub|xlsx|pptx|doc|vsdx|accdb|dot|maw)", RegexOptions.IgnoreCase);
@@ -34,7 +34,7 @@ namespace SegLibrary
             DirSearch(path, regex, result);
             return result;
         }
-        static List<string> GetAudios(string path)
+        public static List<string> GetAudios(string path)
         {
             List<string> result = new List<string>();
             var regex = new Regex(@".*\.(pcm|wav|aiff|mp3|aac|ogg|wma|flac|alac|wma)", RegexOptions.IgnoreCase);
@@ -42,7 +42,7 @@ namespace SegLibrary
             DirSearch(path, regex, result);
             return result;
         }
-        static void CurrSearch(string sDir, Regex regex, List<string> result)
+        public static void CurrSearch(string sDir, Regex regex, List<string> result)
         {
 
             try
@@ -58,7 +58,7 @@ namespace SegLibrary
                 Console.WriteLine(excpt.Message);
             }
         }
-        static void DirSearch(string sDir, Regex regex, List<string> result)
+        public static void DirSearch(string sDir, Regex regex, List<string> result)
         {
 
             try
