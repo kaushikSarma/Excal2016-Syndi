@@ -20,10 +20,13 @@ namespace Syndi2._0
     /// </summary>
     public partial class MainWindow : Window
     {
+        private HomePage hPage = new HomePage();
+        private SharePage sPage = new SharePage();
+
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new HomePage());
+            MainFrame.Navigate(hPage);
         }
 
         public void BackgroundLoaded(object sender, RoutedEventArgs e)
@@ -40,12 +43,12 @@ namespace Syndi2._0
 
         private void homeButtonClick(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new HomePage());
+            MainFrame.Navigate(hPage);
         }
 
         private void shareButtonClick(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new SharePage());
+            MainFrame.Navigate(sPage);
         }
         private List<string> exec_cmd(string arguments)
         {

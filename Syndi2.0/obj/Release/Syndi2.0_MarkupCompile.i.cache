@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\
 Syndi2._0
 none
 false
-DEBUG;TRACE
+TRACE
 F:\Programming\C#\Syndi2.0\Syndi2.0\App.xaml
 3-2101703771
 
-71727210541
+11-1715846311
 161172802029
 HomePage.xaml;MainWindow.xaml;SharePage.xaml;
 
-False
+True
 

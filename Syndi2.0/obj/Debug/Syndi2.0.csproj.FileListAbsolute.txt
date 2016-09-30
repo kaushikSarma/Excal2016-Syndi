@@ -16,3 +16,6 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\SharePage.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\SharePage.baml
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\HomePage.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\HomePage.baml
+F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Debug\NetworkScanner.dll
+F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Debug\SegLibrary.dll
+F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Debug\ShareLibrary.dll

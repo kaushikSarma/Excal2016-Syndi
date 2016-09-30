@@ -31,7 +31,7 @@
             </Button>
         </StackPanel>
         <DockPanel>
-            <Frame x:Name="MainFrame"/>
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
         </DockPanel>
     </Grid>
 </Window>

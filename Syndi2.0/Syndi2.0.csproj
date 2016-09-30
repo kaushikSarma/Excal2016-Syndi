@@ -35,6 +35,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NetworkScanner">
+      <HintPath>dll\NetworkScanner.dll</HintPath>
+    </Reference>
+    <Reference Include="SegLibrary">
+      <HintPath>dll\SegLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ShareLibrary">
+      <HintPath>dll\ShareLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />

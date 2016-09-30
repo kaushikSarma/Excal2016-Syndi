@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+    
 namespace Syndi2._0
 {
     /// <summary>
@@ -23,6 +23,9 @@ namespace Syndi2._0
         public HomePage()
         {
             InitializeComponent();
+            string netBiosName = System.Environment.MachineName;
+            List < List < string >> PcList = NetworkScanner.Scan.RetrievePCNames();
+            PcName.Text = netBiosName + "|" + PcList[0][0];
         }
     }
 }
