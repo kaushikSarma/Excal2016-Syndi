@@ -4,12 +4,12 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Debug\Syndi2.0.pdb
 F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Debug\NetworkScanner.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Debug\SegLibrary.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Debug\ShareLibrary.dll
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2.0.csprojResolveAssemblyReference.cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\CustomTile.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\HomePage.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\MainWindow.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\SharePage.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\App.g.cs
-F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\GeneratedInternalTypeHelper.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2.0_MarkupCompile.cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2.0_MarkupCompile.lref
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\CustomTile.baml

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.DirectoryServices;
     
 namespace Syndi2._0
 {
@@ -33,8 +34,10 @@ namespace Syndi2._0
                 foreach(string name in L)
                 {
                     s += "\n" + name;
+                    PcListTileContainer.Children.Add(new CustomTile(name));
                 }
             }
+            Console.Write(s);
         }
     }
 }

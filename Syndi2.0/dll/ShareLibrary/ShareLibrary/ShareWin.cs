@@ -13,22 +13,21 @@ namespace ShareLibrary
 {
     public class ShareWin
     {
-        public static List<ManagementBaseObject> GetSharedFiles()
+        static System.Management.ManagementClass GetSharedFiles()
         {
             var objClass = new System.Management.ManagementClass("Win32_Share");
-            List<ManagementBaseObject> result = new List<ManagementBaseObject>();
             foreach (var objShare in objClass.GetInstances())
             {
                 if (CheckAccess(Convert.ToString(objShare.Properties["Path"].Value)))
                 {
-                    result.Add(objShare);
-                    //objShare.Properties["Name"].Value, objShare.Properties["Path"].Value
+                    Console.WriteLine(String.Format("{0} -> {1}",
+                    objShare.Properties["Name"].Value, objShare.Properties["Path"].Value));
                 }
             }
-            return result;
+            return objClass;
         }
 
-        public static Boolean CheckAccess(String filePath)
+        private static Boolean CheckAccess(String filePath)
         {
             //Console.WriteLine(filePath);
             try
@@ -52,13 +51,13 @@ namespace ShareLibrary
 
         }
 
-        public static Boolean ShareWithEveryone(string FolderPath, string ShareName, string Description)
+        static Boolean ShareWithEveryone(string FolderPath, string ShareName, string Description)
         {
             Boolean first = QshareFolder(@FolderPath,ShareName,Description);
             Boolean second = GrantEveryone(@FolderPath);
             return first && second;
         }
-        public static Boolean GrantEveryone(String path)
+        private static Boolean GrantEveryone(String path)
         {
             try
             {
@@ -74,7 +73,7 @@ namespace ShareLibrary
             }
          
         }
-        public static Boolean QshareFolder(string FolderPath, string ShareName, string Description)
+        private static Boolean QshareFolder(string FolderPath, string ShareName, string Description)
         {
             try
             {
