@@ -39,10 +39,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\NetworkScanner.dll</HintPath>
     </Reference>
-    <Reference Include="SegLibrary">
+    <Reference Include="SearchLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\SearchLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="SegLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\SegLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="ShareLibrary">
+    <Reference Include="ShareLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\ShareLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -77,6 +83,9 @@
     <Compile Include="FolderTile.xaml.cs">
       <DependentUpon>FolderTile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FolderTiles.xaml.cs">
+      <DependentUpon>FolderTiles.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -88,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FolderTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FolderTiles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -155,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\SyndiIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

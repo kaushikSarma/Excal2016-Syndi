@@ -57,15 +57,16 @@ namespace Syndi2._0
             try
             {
                 FileInfo[] fis = d.GetFiles();
+                foreach (FileInfo fi in fis)
+                {
+                    size += fi.Length;
+                }
             }
             catch (Exception)
             {
 
             }
-            foreach (FileInfo fi in fis)
-            {
-                size += fi.Length;
-            }
+            
             // Add subdirectory sizes.
             DirectoryInfo[] dis = d.GetDirectories();
             foreach (DirectoryInfo di in dis)
