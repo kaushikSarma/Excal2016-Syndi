@@ -15,12 +15,9 @@
                     <GradientStop Color="#33A81919" Offset="0.261"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <TextBlock x:Name="HomePageTitle" Margin="0,30,0,0" TextWrapping="Wrap" Text="PC-Name" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White"/>
-            <Grid Margin="0,67,0,0" Height="100" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200">
-                <TextBlock x:Name="NumberOfConnections" Margin="104,-2,0,0" TextWrapping="Wrap" Text="29" VerticalAlignment="Top" FontSize="64" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Foreground="White" Width="86"/>
-                <Image x:Name="Assets_Icons_ethernet_png" Height="65" Margin="34,10,0,0" Source="Resource/Icons/ethernet.png" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60"/>
-                <TextBlock x:Name="textBlock1" Margin="10,0,6,0" VerticalAlignment="Bottom" Height="27" HorizontalAlignment="Center" FontFamily="Segoe UI Light" FontSize="20"><Run Foreground="White" Text="connections  "/><Run Foreground="#FFB0E84E" Text="available"/></TextBlock>
-            </Grid>
+            <Button x:Name="openBrowser" Height="200" Width="200" Click="openBrowser_Click">
+                
+            </Button>
         </Grid>
     </ScrollViewer>
 </Page>

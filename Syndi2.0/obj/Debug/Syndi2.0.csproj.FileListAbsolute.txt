@@ -22,3 +22,6 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2._0.Properties.Resources.res
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2.0.csproj.GenerateResource.Cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2.0.exe
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2.0.pdb
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\bin\Debug\Syndi2.0.exe.config
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.exe
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.pdb
