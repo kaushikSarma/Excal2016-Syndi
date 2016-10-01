@@ -16,6 +16,8 @@ using System.IO;
 using System.Windows.Forms;
 using ShareLibrary;
 using System.Text.RegularExpressions;
+using System.Management;
+using SegLibrary;
 namespace Syndi2._0
 {
     /// <summary>
@@ -26,8 +28,52 @@ namespace Syndi2._0
         public SharePage()
         {
             InitializeComponent();
+            DisplaySharedFolder();
+        }
+        public void DisplaySharedFolder()
+        {
+            List<ManagementBaseObject> sharedList = new List<ManagementBaseObject>();
+            sharedList = ShareWin.GetSharedFiles();
+            foreach (var objShare in sharedList)
+            {
+                string name = objShare.Properties["Name"].Value.ToString();
+                string path = objShare.Properties["Path"].Value.ToString();
+                List<string> ImageList = new List<string>();
+                List<string> VideoList = new List<string>();
+                List<string> AudioList = new List<string>();
+                List<string> TextList = new List<string>();
+                ImageList = Seperate.GetImages(path);
+                AudioList = Seperate.GetAudios(path);
+                VideoList = Seperate.GetVideos(path);
+                TextList = Seperate.GetDocs(path);
+                var size = DirSize(new DirectoryInfo(path));
+                FolderContainer.Children.Add(new FolderTile(name,path,"Video: " + VideoList.Count, "Audio: " + AudioList.Count, "Text: " + TextList.Count, "Images: " + ImageList.Count,"Size: " + size));
+            }
         }
 
+        public static long DirSize(DirectoryInfo d)
+        {
+            long size = 0;
+            try
+            {
+                FileInfo[] fis = d.GetFiles();
+            }
+            catch (Exception)
+            {
+
+            }
+            foreach (FileInfo fi in fis)
+            {
+                size += fi.Length;
+            }
+            // Add subdirectory sizes.
+            DirectoryInfo[] dis = d.GetDirectories();
+            foreach (DirectoryInfo di in dis)
+            {
+                size += DirSize(di);
+            }
+            return size;
+        }
         private void openBrowser_Click(object sender, RoutedEventArgs e)
         {
             var dlg1 = new Ionic.Utils.FolderBrowserDialogEx();

@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Syndi2._0.FolderTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Syndi2._0"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Margin="0" Width="192" Height="192">
+        <Grid x:Name="FolderContenTile" Background="#0063B1" Margin="0" Width="175" Height="175" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Height="170" Width="192">
+                <TextBlock x:Name="FolderName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF"/>
+                <TextBlock x:Name="Path" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,16,0,0"/>
+                <TextBlock x:Name="VideoFiles" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,80,0,0"/>
+                <TextBlock x:Name="AudioFiles" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,64,0,0"/>
+                <TextBlock x:Name="TextFiles" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,48,0,0"/>
+                <TextBlock x:Name="ImageFiles" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,32,0,0"/>
+                <TextBlock x:Name="Size" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,96,0,0"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -48,6 +48,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -69,6 +71,12 @@
     <Compile Include="CustomTile.xaml.cs">
       <DependentUpon>CustomTile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FolderBrowserDialogEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FolderTile.xaml.cs">
+      <DependentUpon>FolderTile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -76,6 +84,10 @@
       <DependentUpon>SharePage.xaml</DependentUpon>
     </Compile>
     <Page Include="CustomTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderTile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
