@@ -4,6 +4,7 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Release\Syndi2.0.pdb
 F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Release\NetworkScanner.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Release\SegLibrary.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Release\ShareLibrary.dll
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\Syndi2.0.csprojResolveAssemblyReference.cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\HomePage.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\MainWindow.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\SharePage.g.cs

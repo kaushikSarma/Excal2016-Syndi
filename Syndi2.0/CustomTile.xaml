@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Syndi2._0.CustomTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Syndi2._0"
+             mc:Ignorable="d" 
+             d:DesignHeight="192" d:DesignWidth="192">
+    <Grid>
+        <Button x:Name="ContenTileButton" Height="192" Width="192" Background="{x:Null}"/>
+        <Grid x:Name="TileGrid" HorizontalAlignment="Center" Height="160" VerticalAlignment="Center" Width="160">
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="192" Foreground="#99FFFFFF"/>
+        </Grid>
+    </Grid>
+</UserControl>

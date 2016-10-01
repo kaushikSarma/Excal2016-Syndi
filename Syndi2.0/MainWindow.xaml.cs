@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.InteropServices;
 
 namespace Syndi2._0
 {
@@ -22,25 +23,13 @@ namespace Syndi2._0
     {
         private HomePage hPage = new HomePage();
         private SharePage sPage = new SharePage();
-
+        
         public MainWindow()
         {
             InitializeComponent();
             MainFrame.Navigate(hPage);
         }
-
-        public void BackgroundLoaded(object sender, RoutedEventArgs e)
-        {
-            BitmapImage b = new BitmapImage();
-            b.BeginInit();
-            b.UriSource = new Uri("Assets/Icons/SpaceBg.png", UriKind.Relative);
-            b.EndInit();
-            // ... Get Image reference from sender.
-            var image = sender as Image;
-            // ... Assign Source.
-            image.Source = b;
-        }
-
+        
         private void homeButtonClick(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(hPage);

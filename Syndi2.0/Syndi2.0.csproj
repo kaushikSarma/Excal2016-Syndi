@@ -35,7 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NetworkScanner">
+    <Reference Include="NetworkScanner, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\NetworkScanner.dll</HintPath>
     </Reference>
     <Reference Include="SegLibrary">
@@ -64,12 +65,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomTile.xaml.cs">
+      <DependentUpon>CustomTile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SharePage.xaml.cs">
       <DependentUpon>SharePage.xaml</DependentUpon>
     </Compile>
+    <Page Include="CustomTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +97,10 @@
     <Page Include="SharePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -124,7 +136,6 @@
   <ItemGroup>
     <Resource Include="Resource\Icons\ethernet.png" />
     <Resource Include="Resource\Icons\home.png" />
-    <Resource Include="Resource\Icons\menu.png" />
     <Resource Include="Resource\Icons\molecule.png" />
     <Resource Include="Resource\Icons\reload.png" />
     <Resource Include="Resource\Icons\search.png" />

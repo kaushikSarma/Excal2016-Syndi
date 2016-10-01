@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Syndi2._0"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
     </Application.Resources>
 </Application>

@@ -25,7 +25,16 @@ namespace Syndi2._0
             InitializeComponent();
             string netBiosName = System.Environment.MachineName;
             List < List < string >> PcList = NetworkScanner.Scan.RetrievePCNames();
-            PcName.Text = netBiosName + "|" + PcList[0][0];
+            PcName.Text = netBiosName;
+            NumberOfConnections.Text = ((PcList[0].Count + PcList[1].Count) < 10 ? "0" : "") + (PcList[0].Count + PcList[1].Count).ToString();
+            string s = "";
+            foreach (List<string> L in PcList)
+            {
+                foreach(string name in L)
+                {
+                    s += "\n" + name;
+                }
+            }
         }
     }
 }
