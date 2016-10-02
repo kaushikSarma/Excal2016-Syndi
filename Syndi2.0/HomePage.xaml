@@ -6,37 +6,56 @@
       xmlns:local="clr-namespace:Syndi2._0"
       mc:Ignorable="d" 
       d:DesignHeight="768" d:DesignWidth="1366"
-      Title="HomePage">
-    <Page.Resources>
-
-    </Page.Resources>
+      Title="HomePage"
+      Loaded="OnPageLoad">
+    <Page.Background>
+        <ImageBrush ImageSource="Resource/Clouds.png" Opacity="0.2" AlignmentX="Left" AlignmentY="Top" Stretch="UniformToFill" Viewbox="0,0,1.5,1.5"></ImageBrush>
+    </Page.Background>
     <ScrollViewer PanningDeceleration="0.003" PanningMode="VerticalOnly" PanningRatio="0.5">
-        <Grid>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#CC000000" Offset="0"/>
-                    <GradientStop Offset="1" Color="#7F000000"/>
-                    <GradientStop Color="#33000000" Offset="0.261"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <TextBlock x:Name="PcName" Margin="0,30,0,0" TextWrapping="Wrap" Text="PC-Name" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" FontFamily="Segoe UI Light"/>
-            <Grid Margin="0,67,0,0" Height="113" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200">
-                <TextBlock x:Name="NumberOfConnections" Margin="104,-2,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" FontSize="64" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Foreground="White" Width="86"/>
-                <Image x:Name="Assets_Icons_ethernet_png" Height="65" Margin="34,10,0,0" Source="Resource/Icons/ethernet.png" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60"/>
-                <TextBlock x:Name="textBlock1" Margin="10,0,6,2" VerticalAlignment="Bottom" Height="27" HorizontalAlignment="Center" FontFamily="Segoe UI Light" FontSize="20"><Run Foreground="White" Text="connections  "/><Run x:Name="availableText" Foreground="#FFB0E84E" Text="available"/></TextBlock>
+        <DockPanel>
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#CC000000" Offset="0"/>
+                        <GradientStop Offset="1" Color="#7F000000"/>
+                        <GradientStop Color="#33000000" Offset="0.261"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="PcName" Margin="0,30,0,0" TextWrapping="Wrap" Text="PC-Name" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" FontFamily="Segoe UI Light"/>
+                <Grid Margin="0,67,0,0" Height="113" VerticalAlignment="Top" HorizontalAlignment="Center" Width="220">
+                    <TextBlock x:Name="NumberOfConnections" Margin="104,-2,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" FontSize="64" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Foreground="White" Width="116"/>
+                    <Image x:Name="Assets_Icons_ethernet_png" Height="65" Margin="34,10,0,0" Source="Resource/Icons/ethernet.png" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60"/>
+                    <TextBlock x:Name="textBlock1" Margin="0,0,0,2" VerticalAlignment="Bottom" Height="27" HorizontalAlignment="Center" FontFamily="Segoe UI Light" FontSize="20"><Run Foreground="White" Text="connections  "/><Run x:Name="availableText" Foreground="#FFB0E84E" FontFamily="Segoe UI" Text="available"/></TextBlock>
+                </Grid>
+                <TextBlock x:Name="Avail" HorizontalAlignment="Left" Height="39" Margin="90,232,0,0" TextWrapping="Wrap" Text="Explore your connections" VerticalAlignment="Top" Width="258" FontSize="24" Foreground="White" FontFamily="Segoe UI Light"/>
+                <Grid Height="192" Margin="40,271,40,0" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="1172*"/>
+                        <ColumnDefinition Width="48"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BrowseLeftPc" Content="&lt;" Grid.Column="0" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" Width="48"/>
+                    <Button x:Name="BrowseRightPc" Content="&gt;" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center"/>
+                    <ScrollViewer Grid.Column="1" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                        <DockPanel>
+                            <StackPanel x:Name="PcListTileContainer" Grid.Column="1" Orientation="Horizontal"/>
+                        </DockPanel>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Height="250" Margin="40,543,40,100"  VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="1172*"/>
+                        <ColumnDefinition Width="48"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BrowseLeftFiles" Content="&lt;" Grid.Column="0" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" Width="48"/>
+                    <Button x:Name="BrowseRightFiles" Content="&gt;" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center"/>
+                    <ScrollViewer Grid.Column="1" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                        <StackPanel x:Name="PcDetailsContainer" Margin="0" Orientation="Horizontal"/>
+                    </ScrollViewer>
+                </Grid>
+                <TextBlock x:Name="Avail_Copy" HorizontalAlignment="Left" Height="39" Margin="90,484,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="459" FontSize="24" Foreground="White" FontFamily="Segoe UI Light"><Run Text="Files shared by "/><Run FontFamily="Segoe UI" x:Name="CurrentViewPc" Text="" FontWeight="Bold" FontSize="20"/></TextBlock>
             </Grid>
-            <TextBlock x:Name="Avail" HorizontalAlignment="Left" Height="39" Margin="90,232,0,0" TextWrapping="Wrap" Text="Explore your connections" VerticalAlignment="Top" Width="258" FontSize="24" Foreground="White" FontFamily="Segoe UI Light"/>
-            <Grid Height="192" Margin="40,271,40,0" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="48"/>
-                    <ColumnDefinition Width="1172*"/>
-                    <ColumnDefinition Width="48"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="BrowseLeft" Content="&lt;" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" HorizontalAlignment="Left" Width="48"/>
-                <Button x:Name="BrowseRight" Content="&gt;" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center"/>
-                <StackPanel x:Name="PcListTileContainer" Grid.Column="1" Orientation="Horizontal"/>
-            </Grid>
-            <StackPanel x:Name="PcDetailsContainer" Height="461" Margin="90,465,90,-158" VerticalAlignment="Top" Orientation="Horizontal"/>
-        </Grid>
+        </DockPanel>
     </ScrollViewer>
 </Page>

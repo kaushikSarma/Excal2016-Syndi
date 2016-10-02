@@ -162,7 +162,6 @@
   <ItemGroup>
     <Resource Include="Resource\Icons\ethernet.png" />
     <Resource Include="Resource\Icons\home.png" />
-    <Resource Include="Resource\Icons\molecule.png" />
     <Resource Include="Resource\Icons\reload.png" />
     <Resource Include="Resource\Icons\search.png" />
   </ItemGroup>
@@ -171,6 +170,15 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Icons\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Icons\molecule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Clouds.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

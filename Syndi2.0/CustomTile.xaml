@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:Syndi2._0"
              mc:Ignorable="d" 
              d:DesignHeight="192" d:DesignWidth="192" Width="192" Height="192">
-    <Button x:Name="ContentTileButton" Background="{x:Null}" Width="192" Height="192" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="{x:Null}">
+    <Button x:Name="ContentTileButton" Background="{x:Null}" Width="192" Height="192" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Explore this PC">
         <Grid Height="160" Width="160">
-            <TextBlock x:Name="TileHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF"/>
+            <TextBlock x:Name="TileHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" FontWeight="Bold"/>
         </Grid>
     </Button>
 </UserControl>

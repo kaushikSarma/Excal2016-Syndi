@@ -23,13 +23,15 @@ namespace Syndi2._0
     {
         private HomePage hPage = new HomePage();
         private SharePage sPage = new SharePage();
-        
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+        public void OnWindowLoad(object sender, RoutedEventArgs e)
+        {
             MainFrame.Navigate(hPage);
         }
-        
         private void homeButtonClick(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(hPage);
@@ -39,19 +41,10 @@ namespace Syndi2._0
         {
             MainFrame.Navigate(sPage);
         }
-        private List<string> exec_cmd(string arguments)
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = arguments;
-            process.StartInfo = startInfo;
-            process.Start();
-            List<string> output = new List<string>();
-            output.Add(process.StandardOutput.ReadLine());
-            process.Close();
-            return output;
+            //MessageBox.Show(((MainFrame)this).CurrentSource.ToString());
         }
     }
 }

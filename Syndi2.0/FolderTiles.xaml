@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syndi2._0"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Height="299">
-        <TextBlock x:Name="FolderName" HorizontalAlignment="Left" Height="54" Margin="31,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="200" FontSize="20" Foreground="White" FontWeight="Bold"/>
+             mc:Ignorable="d" Height="200" Width="200">
+    <Grid Margin="0,0,10,0">
+        <TextBlock x:Name="FolderName" HorizontalAlignment="Left" Height="16" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="170" FontSize="10.667" Foreground="White" FontWeight="Bold"/>
+        <Image x:Name="image" Source="Resource/Icons/folder.png" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="64" Margin="10,31,0,0"/>
 
     </Grid>
 </UserControl>

@@ -120,7 +120,6 @@ namespace NetworkScanner
        */
         public static string ShowFiles(string pc, string username, string password)
         {
-            
             string command, outputDump;
             command = "/C net use \\\\" + pc + " /user:" + username + " " + password + " /persistent:no";
             outputDump = ViewDirectoryListing(command);
