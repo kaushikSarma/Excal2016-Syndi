@@ -36,6 +36,7 @@ namespace Syndi2._0
             sharedList = ShareWin.GetSharedFiles();
             foreach (var objShare in sharedList)
             {
+                Console.WriteLine(objShare);
                 string name = objShare.Properties["Name"].Value.ToString();
                 string path = objShare.Properties["Path"].Value.ToString();
                 List<string> ImageList = new List<string>();

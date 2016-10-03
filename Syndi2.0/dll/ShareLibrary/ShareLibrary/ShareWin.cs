@@ -145,6 +145,8 @@ namespace ShareLibrary
 
                 // Check to see if the method invocation was successful
                 var result = (uint)(outParams.Properties["ReturnValue"].Value);
+                if (!GrantEveryone(FolderPath))
+                    return 2;
                 return result;
             }
             catch (Exception ex)
@@ -152,6 +154,24 @@ namespace ShareLibrary
                 return 1;
                 //Console.WriteLine("Error:" + ex.Message);
             }
+        }
+
+        public static Boolean GrantEveryone(String path)
+        {
+            try
+            {
+                DirectorySecurity sec = Directory.GetAccessControl(path);
+                // Using this instead of the "Everyone" string means we work on non-English systems.
+                SecurityIdentifier everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
+                sec.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.Modify | FileSystemRights.Synchronize | FileSystemRights.ReadAndExecute, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
+                Directory.SetAccessControl(path, sec);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
 
     }
