@@ -5,6 +5,8 @@ using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Net;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace NetworkScanner
 {
@@ -120,6 +122,7 @@ namespace NetworkScanner
        */
         public static string ShowFiles(string pc, string username, string password)
         {
+            
             string command, outputDump;
             command = "/C net use \\\\" + pc + " /user:" + username + " " + password + " /persistent:no";
             outputDump = ViewDirectoryListing(command);
@@ -138,6 +141,25 @@ namespace NetworkScanner
             
         }
 
+
+        public static string timeout(string command)
+        {
+            var tokenSource = new CancellationTokenSource();
+            var token = tokenSource.Token;
+
+            Task<string> task = new Task<string>(() => ViewCommandLineResult(command), token);
+            task.Start();
+
+            if (task.Wait(TimeSpan.FromSeconds(2)))
+            {
+                return task.Result;
+            }
+
+            else
+            {
+                return "System error 53 has occurred.";
+            }
+        }
 
         public static List<List<string>> RetrievePCNames()
         {
@@ -172,8 +194,8 @@ namespace NetworkScanner
                 NameOfPC += FullListArray[k];
                 command = "/C net view \\";
                 command += NameOfPC;
-                string connectionOutput = ViewCommandLineResult(command);
-
+                
+                string connectionOutput = timeout(command);
                 var NetworkPathErrorRegex = new Regex(@"System error 53 has occurred.");
                 var PasswordProtectionRegex = new Regex(@"System error 5 has occurred.");
 
@@ -200,6 +222,22 @@ namespace NetworkScanner
             DistinguishedList.Add(NetworkPathErrorPCList);
 
             return DistinguishedList;
+        }
+
+        public static List<string> IdentifyFolderNames(string pc)
+        {
+            string command, outputDump;
+            List<string> FoldersList = new List<string>();
+
+            command = "/C net view \\\\";
+            command += pc;
+            outputDump = ViewCommandLineResult(command);
+            Console.WriteLine(outputDump);
+            foreach (Match match in Regex.Matches(outputDump, @"(.{1}.*?)Disk(.*)([^ {2,10}]*)\n"))
+                FoldersList.Add(match.Groups[1].Value);
+
+            return FoldersList;
+
         }
 
     }
