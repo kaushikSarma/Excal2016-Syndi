@@ -10,8 +10,50 @@ using System.Threading;
 
 namespace NetworkScanner
 {
+
     public class Scan
     {
+        public struct StructDataOfPC
+        {
+            public string NameOfPC;
+            public string TypeOfPC;
+            public long SizeOfSharedFolders;
+        }
+
+        public static List<StructDataOfPC> DetailsOfPC()
+        {
+            List<StructDataOfPC> FinalOutput = new List<StructDataOfPC>();
+
+            List<List<string>> ListOfPC;
+            ListOfPC = RetrievePCNames();
+            
+            var PublicList = ListOfPC[0].ToArray();
+            var PasswordProtectedList = ListOfPC[1].ToArray();
+            
+            for (int i = 0; i < PublicList.Length; i++) {
+                StructDataOfPC s;
+                s.NameOfPC = PublicList[i];
+                s.TypeOfPC = "Public";
+                List<string> NameOfFolders = IdentifyFolderNames(PublicList[i]);
+                long sizeOfBytes = SizeOfSharedFiles(PublicList[i], NameOfFolders);
+                s.SizeOfSharedFolders = sizeOfBytes;
+                FinalOutput.Add(s);
+            }
+
+            for (int i = 0; i < PasswordProtectedList.Length; i++)
+            {
+                StructDataOfPC s;
+                s.NameOfPC = PublicList[i];
+                s.TypeOfPC = "Password";
+                List<string> NameOfFolders = IdentifyFolderNames(PublicList[i]);
+                long sizeOfBytes = SizeOfSharedFiles(PublicList[i], NameOfFolders);
+                s.SizeOfSharedFolders = sizeOfBytes;
+                FinalOutput.Add(s);
+            }
+
+            return FinalOutput;
+        }
+
         public static string ViewCommandLineResult(string args)
         {
             System.Diagnostics.Process process = new System.Diagnostics.Process();
@@ -217,6 +259,8 @@ namespace NetworkScanner
 
             }
 
+            
+
             DistinguishedList.Add(PublicPCList);
             DistinguishedList.Add(PasswordProtectedPCList);
             DistinguishedList.Add(NetworkPathErrorPCList);
@@ -238,6 +282,38 @@ namespace NetworkScanner
 
             return FoldersList;
 
+        }
+
+        //Get the folder size in bytes
+        public static long DirSize(DirectoryInfo d)
+        {
+            long size = 0;
+            // Add file sizes.
+            FileInfo[] fis = d.GetFiles();
+            foreach (FileInfo fi in fis)
+            {
+                size += fi.Length;
+            }
+            // Add subdirectory sizes.
+            DirectoryInfo[] dis = d.GetDirectories();
+            foreach (DirectoryInfo di in dis)
+            {
+                size += DirSize(di);
+            }
+            return size;
+        }
+
+        public static long SizeOfSharedFiles(string pc, List<string> folderNames)
+        {
+            long sum = 0;
+            var folderNamesArray = folderNames.ToArray();
+            string command = "\\\\" + pc;
+            for (int i = 0; i < folderNamesArray.Length; i++)
+            {
+                sum += DirSize(new DirectoryInfo(command + "\\" + folderNamesArray[i]));
+            }
+
+            return sum;
         }
 
     }
