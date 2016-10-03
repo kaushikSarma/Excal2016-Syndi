@@ -52,3 +52,33 @@ C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\ob
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.g.resources
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2._0.Properties.Resources.resources
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.csproj.GenerateResource.Cache
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\bin\Debug\Syndi2.0.exe.config
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.exe
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.pdb
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\bin\Debug\Syndi2.0.exe
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\bin\Debug\Syndi2.0.pdb
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\bin\Debug\NetworkScanner.dll
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\bin\Debug\SearchLibrary.dll
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\bin\Debug\SegLibrary.dll
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\bin\Debug\ShareLibrary.dll
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.csprojResolveAssemblyReference.cache
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\CustomTile.g.cs
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\FolderTile.g.cs
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\FolderTiles.g.cs
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\HomePage.g.cs
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\MainWindow.g.cs
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\SharePage.g.cs
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\App.g.cs
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0_MarkupCompile.cache
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0_MarkupCompile.lref
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\App.baml
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\CustomTile.baml
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\FolderTile.baml
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\FolderTiles.baml
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\HomePage.baml
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\MainWindow.baml
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\SharePage.baml
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Themes\Generic.baml
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.g.resources
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2._0.Properties.Resources.resources
+F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.csproj.GenerateResource.Cache

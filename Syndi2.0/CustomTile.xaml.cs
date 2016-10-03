@@ -20,10 +20,11 @@ namespace Syndi2._0
     /// </summary>
     public partial class CustomTile : UserControl
     {
-        public CustomTile(string Title)
+        public CustomTile(string Title,int number)
         {
             InitializeComponent();
             TileHeader.Text = Title;
+            PcNumber.Text = ((number < 9) ? "0" : "") + number.ToString();
         }
     }
 }

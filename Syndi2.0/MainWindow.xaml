@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Syndi2._0"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
         Title="Syndi" Height="768" Width="1368" FontFamily="Segoe UI Light"
         Loaded="OnWindowLoad">
     <Window.Resources>

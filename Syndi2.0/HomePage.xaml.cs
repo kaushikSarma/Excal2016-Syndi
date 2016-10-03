@@ -36,25 +36,27 @@ namespace Syndi2._0
             string netBiosName = System.Environment.MachineName;
             PcName.Text = netBiosName;
             PcList = NetworkScanner.Scan.RetrievePCNames();
-            int count = PcList[0].Count + PcList[1].Count - 1;
+            int count = 0;// PcList[0].Count + PcList[1].Count - 1;
             
-            NumberOfConnections.Text = (count < 10 ? "0" : "") + count.ToString();
-            if(count == 0)
-            {
-                availableText.Text = "unavailable";
-                availableText.Foreground = new SolidColorBrush(Colors.Red);
-            }
             foreach (List<string> L in PcList)
             {
                 foreach(string name in L)
                 {
                     if(name != netBiosName)
                     {
-                        CustomTile t = new CustomTile(name);
+                        count++;
+                        CustomTile t = new CustomTile(name, count);
                         t.ContentTileButton.Click += (sender1, ex) => this.Display(t);
                         PcListTileContainer.Children.Add(t);
                     }
                 }
+            }
+
+            NumberOfConnections.Text = (count < 10 ? "0" : "") + count.ToString();
+            if (count == 0)
+            {
+                availableText.Text = "unavailable";
+                availableText.Foreground = new SolidColorBrush(Colors.Red);
             }
         }
         public void PopulatePcList()
@@ -64,6 +66,7 @@ namespace Syndi2._0
             List<String> _ComputerNames = new List<String>();
             String _ComputerSchema = "Computer";
             int count = 0;
+            PcListTileContainer.Children.Clear();
             System.DirectoryServices.DirectoryEntry _WinNTDirectoryEntries = new System.DirectoryServices.DirectoryEntry("WinNT:");
             foreach (System.DirectoryServices.DirectoryEntry _AvailDomains in _WinNTDirectoryEntries.Children)
             {
@@ -75,17 +78,25 @@ namespace Syndi2._0
                         if(_PCNameEntry.Name.Length > 0)
                         {
                             count++;
-                            CustomTile t = new CustomTile(_PCNameEntry.Name);
+                            CustomTile t = new CustomTile(_PCNameEntry.Name, count);
                             t.ContentTileButton.Click += (sender1, ex) => this.Display(t);
                             PcListTileContainer.Children.Add(t);
-                            //var folders = System.IO.Directory.GetDirectories(@"\\"+_PCNameEntry.Name );
-                            //Console.WriteLine(folders.ToArray().ToString());
                         }
                     }
                 }
             }
-            NumberOfConnections.Text = ((count < 10) ? "0" : "") + count.ToString() ;            
-            Display(new CustomTile(netBiosName));
+            NumberOfConnections.Text = ((count < 10) ? "0" : "") + count.ToString() ;
+            if (count == 0)
+            {
+                availableText.Text = "unavailable";
+                availableText.Foreground = new SolidColorBrush(Colors.OrangeRed);
+            }
+            else if(count > 0)
+            {
+                availableText.Text = "available";
+                availableText.Foreground = new SolidColorBrush(Colors.Green);
+            }
+            Display(new CustomTile(netBiosName, 0));
         }
         public void Display(CustomTile sender)
         {
@@ -99,13 +110,17 @@ namespace Syndi2._0
                 {
                     Console.WriteLine(file);
                     PcDetailsContainer.Children.Add(new FolderTiles(file));
-                    
                 }
             }
             catch
             {
                 PcDetailsContainer.Children.Add(new FolderTiles("No Access"));
             }
+        }
+
+        private void BrowseLeftPc_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
