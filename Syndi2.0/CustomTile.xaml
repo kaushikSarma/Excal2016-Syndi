@@ -6,11 +6,13 @@
              xmlns:local="clr-namespace:Syndi2._0"
              mc:Ignorable="d" 
              d:DesignHeight="192" d:DesignWidth="192" Width="192" Height="192">
-    <Button x:Name="ContentTileButton" Background="{x:Null}" Width="192" Height="192" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Explore this PC">
-        <Grid Height="160" Width="160">
-            <TextBlock x:Name="PcNumber" HorizontalAlignment="Center" Height="160" TextWrapping="Wrap" VerticalAlignment="Center" Width="160" Foreground="#4C78F3FF" Text="00" FontSize="74.667"/>
-            <TextBlock x:Name="TileHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" FontWeight="Bold" Margin="0,0,-6,0"/>
-            <TextBlock x:Name="PCStatus" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Width="70" Foreground="#99FFFFFF" FontWeight="Bold" Margin="0,27,0,0"/>
-        </Grid>
-    </Button>
+    <Border Style="{StaticResource FolderButtonBorder}">
+        <Button Style="{StaticResource FolderButton}" x:Name="ContentTileButton" Width="192" Height="192" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" ToolTip="Explore this PC">
+            <Grid Height="160" Width="160">
+                <TextBlock x:Name="PcNumber" HorizontalAlignment="Center" Height="160" TextWrapping="Wrap" VerticalAlignment="Center" Width="160" Foreground="#4C78F3FF" Text="00" FontSize="74.667"/>
+                <TextBlock x:Name="TileHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" FontWeight="Bold" Margin="0,0,-6,0"/>
+                <TextBlock x:Name="PCStatus" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Width="70" Foreground="#99FFFFFF" FontWeight="Bold" Margin="0,27,0,0"/>
+            </Grid>
+        </Button>
+    </Border>
 </UserControl>

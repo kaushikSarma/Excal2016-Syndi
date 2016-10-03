@@ -21,7 +21,7 @@ namespace SegLibrary
         public static List<string> GetImages(string path)
         {
             List<string> result = new List<string>();
-            var regex = new Regex(@".*\.(ani|bmp|cal|fax|gif|img|jbg|jpe|jpeg|mac|pbm|pcd|pcx|pct|pgm|png|ppm|psd|ras|tga|tiff|wmf)", RegexOptions.IgnoreCase);
+            var regex = new Regex(@".*\.(ani|bmp|cal|fax|gif|img|jbg|jpe|jpeg|mac|pbm|pcd|pcx|pct|pgm|png|ppm|psd|ras|tga|tiff|wmf|jpg)", RegexOptions.IgnoreCase);
             CurrSearch(path, regex, result);
             DirSearch(path, regex, result);
             return result;
