@@ -18,6 +18,7 @@ using ShareLibrary;
 using System.Text.RegularExpressions;
 using System.Management;
 using SegLibrary;
+
 namespace Syndi2._0
 {
     /// <summary>
@@ -38,9 +39,11 @@ namespace Syndi2._0
             FolderContainer.Children.Clear();
             foreach (var objShare in sharedList)
             {
+                /*
                 Console.WriteLine(String.Format("{0} -> {1}",
                      objShare.Properties["Name"].Value, objShare.Properties["Path"].Value));
                 Console.WriteLine(objShare);
+                */
                 string name = objShare.Properties["Name"].Value.ToString();
                 string path = objShare.Properties["Path"].Value.ToString();
                 List<string> ImageList = new List<string>();
@@ -51,9 +54,8 @@ namespace Syndi2._0
                 AudioList = Seperate.GetAudios(path);
                 VideoList = Seperate.GetVideos(path);
                 TextList = Seperate.GetDocs(path);
-                var size = DirSize(new DirectoryInfo(path));
-                //var size = "Dala Nahi ";
-                FolderContainer.Children.Add(new FolderTile(name,path,"Video: " + VideoList.Count, "Audio: " + AudioList.Count, "Text: " + TextList.Count, "Images: " + ImageList.Count,"Size: " + size));
+                var size = DirSize(new DirectoryInfo(@path));
+                FolderContainer.Children.Add(new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size));
             }
         }
         public void AppendNewShare(string name,string path)
@@ -68,7 +70,7 @@ namespace Syndi2._0
             TextList = Seperate.GetDocs(path);
             //var size = DirSize(new DirectoryInfo(path));
             var size = DirSize(new DirectoryInfo(@path));
-            FolderContainer.Children.Add(new FolderTile(name, path, "Video: " + VideoList.Count, "Audio: " + AudioList.Count, "Text: " + TextList.Count, "Images: " + ImageList.Count, "Size: " + size));
+            FolderContainer.Children.Add(new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size));
         }
         public static long DirSize(DirectoryInfo d)
         {

@@ -89,12 +89,12 @@ namespace Syndi2._0
             if (count == 0)
             {
                 availableText.Text = "unavailable";
-                availableText.Foreground = new SolidColorBrush(Colors.OrangeRed);
+                availableText.Foreground = new SolidColorBrush(Color.FromArgb(255, 232, 55, 78));//#FFE8554E
             }
             else if(count > 0)
             {
                 availableText.Text = "available";
-                availableText.Foreground = new SolidColorBrush(Colors.Green);
+                availableText.Foreground = new SolidColorBrush(Color.FromArgb(255, 106, 232, 78));//#FF6AE84E
             }
             Display(new CustomTile(netBiosName, 0));
         }

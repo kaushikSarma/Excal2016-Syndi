@@ -5,6 +5,7 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Release\NetworkScanner.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Release\SearchLibrary.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Release\SegLibrary.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Release\ShareLibrary.dll
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\Syndi2.0.csprojResolveAssemblyReference.cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\CustomTile.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\FolderTile.g.cs
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\FolderTiles.g.cs
@@ -27,4 +28,3 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\Syndi2._0.Properties.Resources.r
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\Syndi2.0.csproj.GenerateResource.Cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\Syndi2.0.exe
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\Syndi2.0.pdb
-F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\Syndi2.0.csprojResolveAssemblyReference.cache

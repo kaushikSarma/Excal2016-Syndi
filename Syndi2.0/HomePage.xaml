@@ -34,7 +34,7 @@
                         <ColumnDefinition Width="1172*"/>
                         <ColumnDefinition Width="48"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="BrowseLeftPc" Content="&lt;" Grid.Column="0" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" Width="48"/>
+                    <Button x:Name="BrowseLeftPc" Content="&lt;" Grid.Column="0" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" Width="48" Click="BrowseLeftPc_Click"/>
                     <Button x:Name="BrowseRightPc" Content="&gt;" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center"/>
                     <ScrollViewer Grid.Column="1" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
                         <DockPanel>

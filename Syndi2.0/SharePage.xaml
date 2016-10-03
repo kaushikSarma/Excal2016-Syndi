@@ -4,33 +4,39 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Syndi2._0"
-      mc:Ignorable="d" d:DesignWidth="1366"
-      Title="SharePage" WindowHeight="1366" WindowTitle="Syndi" WindowWidth="768" Height="885">
-    <ScrollViewer>
-        <Grid Margin="0" Height="auto">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#E6E6E6" Offset="0"/>
-                    <GradientStop Offset="1" Color="#E6E6E6"/>
-                    <GradientStop Color="#E6E6E6" Offset="0.261"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <TextBlock Text="Share" Margin="102,50,912,784" FontSize="20" Foreground="#979797" Width="auto"/>
-            <Button x:Name="openBrowser" Click="openBrowser_Click" Margin="102,106,867,672" Background="#0063B1"/>
-            <TextBlock Text="Folders Shared" Margin="102,218,771,614" FontSize="20" Foreground="#979797" Width="auto"/>
-            <Grid Height="192" Margin="40,271,40,0" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="48"/>
-                    <ColumnDefinition Width="110*"/>
-                    <ColumnDefinition Width="40*"/>
-                    <ColumnDefinition Width="137*"/>
-                    <ColumnDefinition Width="886*"/>
-                    <ColumnDefinition Width="48"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="BrowseLeft" Content="&lt;" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" HorizontalAlignment="Left" Width="48"/>
-                <Button x:Name="BrowseRight" Content="&gt;" Grid.Column="5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center"/>
-                <StackPanel x:Name="FolderContainer" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="4" Margin="0,10,0,-10"/>
+      mc:Ignorable="d" 
+      d:DesignWidth="1366"
+      d:DesignHeight="768"
+      Title="SharePage">
+    <ScrollViewer PanningDeceleration="0.003" PanningMode="VerticalOnly" PanningRatio="0.5">
+        <DockPanel>
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#CC000000" Offset="0"/>
+                        <GradientStop Offset="1" Color="#CC000000"/>
+                        <GradientStop Color="#33000000" Offset="0.213"/>
+                        <GradientStop Color="#7F000000" Offset="0.434"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock Text="Share" Margin="102,50,0,0"  Width="auto" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Foreground="White" FontFamily="Segoe UI Light"/>
+                <Button x:Name="openBrowser" Click="openBrowser_Click" Margin="102,98,0,0" Background="#FF8B8B8B" ToolTip="Share new folder" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="360" Height="120">
+                    <Image x:Name="image" Height="64" Width="64" Source="Resource/Icons/plus.png"/>
+                </Button>
+                <TextBlock Text="Folders Shared" Margin="102,268,0,0" FontSize="24" Foreground="White" FontFamily="Segoe UI Light" Width="auto" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <Grid Height="192" Margin="40,317,40,0" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="1172*"/>
+                        <ColumnDefinition Width="48"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BrowseLeft" Content="&lt;" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" HorizontalAlignment="Left" Width="48"/>
+                    <ScrollViewer Grid.Column="1" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                        <StackPanel x:Name="FolderContainer" Orientation="Horizontal" Margin="0"/>
+                    </ScrollViewer>
+                    <Button x:Name="BrowseRight" Content="&gt;" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center"/>
+                </Grid>
             </Grid>
-        </Grid>
+        </DockPanel>
     </ScrollViewer>
 </Page>

@@ -5,17 +5,28 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syndi2._0"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Width="192" Height="192">
     <Grid Margin="0" Width="192" Height="192">
-        <Grid x:Name="FolderContenTile" Background="#0063B1" Margin="0" Width="175" Height="175" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid Height="170" Width="192">
-                <TextBlock x:Name="FolderName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF"/>
-                <TextBlock x:Name="Path" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,16,0,0"/>
-                <TextBlock x:Name="VideoFiles" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,80,0,0"/>
-                <TextBlock x:Name="AudioFiles" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,64,0,0"/>
-                <TextBlock x:Name="TextFiles" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,48,0,0"/>
-                <TextBlock x:Name="ImageFiles" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,32,0,0"/>
-                <TextBlock x:Name="Size" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" Margin="0,96,0,0"/>
+        <Grid x:Name="FolderContenTile" Margin="0" Width="192" Height="192" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+            <Grid Height="160" Width="160" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="#99FFFFFF" Height="48" FontSize="32" Margin="0,46,0,0"><Run x:Name="Size"></Run><Run x:Name="SizeUnit" FontSize="16" FontWeight="Bold" Foreground="#9978F3FF"></Run></TextBlock>
+                <TextBlock x:Name="FolderName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="FolderName" VerticalAlignment="Top" Width="160" Foreground="#99FFFFFF" FontSize="15" Height="41" FontWeight="Bold"/>
+                <Grid Height="40" Margin="2,131,96,-11">
+                    <TextBlock x:Name="VideoFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
+                    <Image x:Name="image3" HorizontalAlignment="Left" Height="24" Margin="0" Width="24" VerticalAlignment="Center" IsEnabled="False" Source="Resource/Icons/video-player.png"/>
+                </Grid>
+                <Grid Height="40" Margin="69,91,29,29">
+                    <TextBlock x:Name="AudioFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
+                    <Image x:Name="image1" Height="24" Margin="0" Width="24" HorizontalAlignment="Left" Source="Resource/Icons/headphones.png" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid Height="40" Margin="2,91,96,29">
+                    <TextBlock x:Name="ImageFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
+                    <Image x:Name="image" HorizontalAlignment="Left" Height="24" Width="24" Source="Resource/Icons/picture.png" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid Height="40" Margin="69,131,29,-11">
+                    <TextBlock x:Name="TextFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
+                    <Image x:Name="image2" HorizontalAlignment="Left" Height="24" Margin="0" Width="24" Source="Resource/Icons/file.png" VerticalAlignment="Center"/>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
