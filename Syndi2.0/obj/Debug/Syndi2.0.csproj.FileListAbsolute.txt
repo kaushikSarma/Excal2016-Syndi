@@ -22,3 +22,33 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2._0.Properties.Resources.res
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2.0.csproj.GenerateResource.Cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2.0.exe
 F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\Syndi2.0.pdb
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\bin\Debug\Syndi2.0.exe.config
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.exe
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.pdb
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\bin\Debug\Syndi2.0.exe
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\bin\Debug\Syndi2.0.pdb
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\bin\Debug\NetworkScanner.dll
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\bin\Debug\SearchLibrary.dll
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\bin\Debug\SegLibrary.dll
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\bin\Debug\ShareLibrary.dll
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.csprojResolveAssemblyReference.cache
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\CustomTile.g.cs
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\FolderTile.g.cs
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\FolderTiles.g.cs
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\HomePage.g.cs
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\MainWindow.g.cs
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\SharePage.g.cs
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\App.g.cs
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0_MarkupCompile.cache
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0_MarkupCompile.lref
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\App.baml
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\CustomTile.baml
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\FolderTile.baml
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\FolderTiles.baml
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\HomePage.baml
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\MainWindow.baml
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\SharePage.baml
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Themes\Generic.baml
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.g.resources
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2._0.Properties.Resources.resources
+C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.csproj.GenerateResource.Cache

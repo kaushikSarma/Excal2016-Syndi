@@ -52,51 +52,107 @@ namespace ShareLibrary
 
         }
 
-        public static Boolean ShareWithEveryone(string FolderPath, string ShareName, string Description)
-        {
-            Boolean first = QshareFolder(@FolderPath,ShareName,Description);
-            Boolean second = GrantEveryone(@FolderPath);
-            return first && second;
-        }
-        public static Boolean GrantEveryone(String path)
+        public static int RemoveSharedFolder(string ShareName)
         {
             try
             {
-                DirectorySecurity sec = Directory.GetAccessControl(path);
-                SecurityIdentifier everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
-                sec.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.Modify | FileSystemRights.Synchronize, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
-                Directory.SetAccessControl(path, sec);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-         
-        }
-        public static Boolean QshareFolder(string FolderPath, string ShareName, string Description)
-        {
-            try
-            {
+                // Create a ManagementClass object
                 ManagementClass managementClass = new ManagementClass("Win32_Share");
+                ManagementObjectCollection shares = managementClass.GetInstances();
+                foreach (ManagementObject share in shares)
+                {
+                    if (Convert.ToString(share["Name"]).Equals(ShareName))
+                    {
+                        var result = share.InvokeMethod("Delete", new object[] { });
+
+                        // Check to see if the method invocation was successful
+                        if (Convert.ToInt32(result) != 0)
+                        {
+                            Console.WriteLine("Unable to unshare directory.");
+                            return 0;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Folder successfuly unshared.");
+                            return 1;
+                        }
+                    }
+                }
+                return 2;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error:" + ex.Message);
+                return -1;
+            }
+        }
+
+        public static uint CreateSharedFolder(string FolderPath, string ShareName, string Description)
+        {
+            try
+            {
+                // Create a ManagementClass object
+                ManagementClass managementClass = new ManagementClass("Win32_Share");
+
+                // Create ManagementBaseObjects for in and out parameters
                 ManagementBaseObject inParams = managementClass.GetMethodParameters("Create");
+
                 ManagementBaseObject outParams;
+
+                // Set the input parameters
                 inParams["Description"] = Description;
                 inParams["Name"] = ShareName;
                 inParams["Path"] = FolderPath;
                 inParams["Type"] = 0x0; // Disk Drive
-                outParams = managementClass.InvokeMethod("Create", inParams, null);
-                if ((uint)(outParams.Properties["ReturnValue"].Value) != 0)
-                {
-                    throw new Exception("Unable to share directory.");
-                }
-                return true;
 
+                //Another Type:
+                // DISK_DRIVE = 0x0
+                // PRINT_QUEUE = 0x1
+                // DEVICE = 0x2
+                // IPC = 0x3
+                // DISK_DRIVE_ADMIN = 0x80000000
+                // PRINT_QUEUE_ADMIN = 0x80000001
+                // DEVICE_ADMIN = 0x80000002
+                // IPC_ADMIN = 0x8000003
+
+                //inParams["MaximumAllowed"] = 2;
+                inParams["Password"] = null;
+
+                NTAccount everyoneAccount = new NTAccount(null, "EVERYONE");
+                SecurityIdentifier sid = (SecurityIdentifier)everyoneAccount.Translate(typeof(SecurityIdentifier));
+                byte[] sidArray = new byte[sid.BinaryLength];
+                sid.GetBinaryForm(sidArray, 0);
+
+                ManagementObject everyone = new ManagementClass("Win32_Trustee");
+                everyone["Domain"] = null;
+                everyone["Name"] = "EVERYONE";
+                everyone["SID"] = sidArray;
+
+                ManagementObject dacl = new ManagementClass("Win32_Ace");
+                dacl["AccessMask"] = 1179817;
+                dacl["AceFlags"] = 3;
+                dacl["AceType"] = 1;
+                dacl["Trustee"] = everyone;
+
+                ManagementObject securityDescriptor = new ManagementClass("Win32_SecurityDescriptor");
+                securityDescriptor["ControlFlags"] = 4; //SE_DACL_PRESENT 
+                securityDescriptor["DACL"] = new object[] { dacl };
+
+                inParams["Access"] = securityDescriptor;
+
+                // Invoke the "create" method on the ManagementClass object
+                outParams = managementClass.InvokeMethod("Create", inParams, null);
+
+                // Check to see if the method invocation was successful
+                var result = (uint)(outParams.Properties["ReturnValue"].Value);
+                return result;
             }
             catch (Exception ex)
             {
-                return false;
+                return 1;
+                //Console.WriteLine("Error:" + ex.Message);
             }
         }
+
     }
 }

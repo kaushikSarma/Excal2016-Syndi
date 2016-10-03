@@ -53,6 +53,8 @@ namespace Syndi2._0
 
         public static long DirSize(DirectoryInfo d)
         {
+            if (d.ToString() == @"C:\Users")
+                return 0;
             long size = 0;
             try
             {
@@ -64,14 +66,19 @@ namespace Syndi2._0
             }
             catch (Exception)
             {
-
+                Console.WriteLine("Not accessible");
             }
-            
-            // Add subdirectory sizes.
-            DirectoryInfo[] dis = d.GetDirectories();
-            foreach (DirectoryInfo di in dis)
+            try
             {
-                size += DirSize(di);
+                DirectoryInfo[] dis = d.GetDirectories();
+                foreach (DirectoryInfo di in dis)
+                {
+                    size += DirSize(di);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Not accessible");
             }
             return size;
         }
@@ -90,26 +97,51 @@ namespace Syndi2._0
             if (result == DialogResult.OK)
             {
                 var path = dlg1.SelectedPath;
+                System.Windows.Forms.MessageBox.Show(path);
                 var match = Regex.Match(path, @".*\\(.*)$");
                 var name = match.Groups[1].Value;
                 var myPath = "\\\\" + Environment.MachineName + "\\" + name;
                 if (Directory.Exists(dlg1.SelectedPath))
                 {
-                    System.Windows.Forms.MessageBox.Show(myPath);
-                    if(Directory.Exists(@myPath))
+                    var check = ShareWin.CreateSharedFolder(path,name,name);
+                    switch (check)
                     {
-                        System.Windows.Forms.MessageBox.Show("File already shared");
-                    }
-                    else
-                    {
-                        if (ShareWin.ShareWithEveryone(dlg1.SelectedPath, name, name))
-                        {
-                            System.Windows.Forms.MessageBox.Show("Success");
-                        }
-                        else
-                        {
-                            System.Windows.Forms.MessageBox.Show("Failure");
-                        }
+                        case 0:
+                            Console.WriteLine("Folder successfuly shared.");
+                            break;
+                        case 1:
+                            Console.WriteLine("Exception Thrown");
+                            break;
+                        case 2:
+                            Console.WriteLine("Access Denied");
+                            break;
+                        case 8:
+                            Console.WriteLine("Unknown Failure");
+                            break;
+                        case 9:
+                            Console.WriteLine("Invalid Name");
+                            break;
+                        case 10:
+                            Console.WriteLine("Invalid Level");
+                            break;
+                        case 21:
+                            Console.WriteLine("Invalid Parameter");
+                            break;
+                        case 22:
+                            Console.WriteLine("Duplicate Share");
+                            break;
+                        case 23:
+                            Console.WriteLine("Redirected Path");
+                            break;
+                        case 24:
+                            Console.WriteLine("Unknown Device or Directory");
+                            break;
+                        case 25:
+                            Console.WriteLine("Net Name Not Found");
+                            break;
+                        default:
+                            Console.WriteLine("Folder cannot be shared.");
+                            break;
                     }
                 }
                 else
