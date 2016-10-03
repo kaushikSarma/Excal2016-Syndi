@@ -32,10 +32,14 @@ namespace Syndi2._0
         }
         public void DisplaySharedFolder()
         {
+            Console.WriteLine("--------------------------Display Function-------------------------------");
             List<ManagementBaseObject> sharedList = new List<ManagementBaseObject>();
             sharedList = ShareWin.GetSharedFiles();
+            FolderContainer.Children.Clear();
             foreach (var objShare in sharedList)
             {
+                Console.WriteLine(String.Format("{0} -> {1}",
+                     objShare.Properties["Name"].Value, objShare.Properties["Path"].Value));
                 Console.WriteLine(objShare);
                 string name = objShare.Properties["Name"].Value.ToString();
                 string path = objShare.Properties["Path"].Value.ToString();
@@ -48,14 +52,28 @@ namespace Syndi2._0
                 VideoList = Seperate.GetVideos(path);
                 TextList = Seperate.GetDocs(path);
                 var size = DirSize(new DirectoryInfo(path));
+                //var size = "Dala Nahi ";
                 FolderContainer.Children.Add(new FolderTile(name,path,"Video: " + VideoList.Count, "Audio: " + AudioList.Count, "Text: " + TextList.Count, "Images: " + ImageList.Count,"Size: " + size));
             }
         }
-
+        public void AppendNewShare(string name,string path)
+        {
+            List<string> ImageList = new List<string>();
+            List<string> VideoList = new List<string>();
+            List<string> AudioList = new List<string>();
+            List<string> TextList = new List<string>();
+            ImageList = Seperate.GetImages(path);
+            AudioList = Seperate.GetAudios(path);
+            VideoList = Seperate.GetVideos(path);
+            TextList = Seperate.GetDocs(path);
+            //var size = DirSize(new DirectoryInfo(path));
+            var size = DirSize(new DirectoryInfo(@path));
+            FolderContainer.Children.Add(new FolderTile(name, path, "Video: " + VideoList.Count, "Audio: " + AudioList.Count, "Text: " + TextList.Count, "Images: " + ImageList.Count, "Size: " + size));
+        }
         public static long DirSize(DirectoryInfo d)
         {
-            if (d.ToString() == @"C:\Users")
-                return 0;
+            //if (d.ToString() == @"C:\Users")
+           //     return 0;
             long size = 0;
             try
             {
@@ -102,13 +120,15 @@ namespace Syndi2._0
                 var match = Regex.Match(path, @".*\\(.*)$");
                 var name = match.Groups[1].Value;
                 var myPath = "\\\\" + Environment.MachineName + "\\" + name;
+                int accessType = 0;
                 if (Directory.Exists(dlg1.SelectedPath))
                 {
-                    var check = ShareWin.CreateSharedFolder(path,name,name);
+                    var check = ShareWin.CreateSharedFolder(path,name,name,accessType);
                     switch (check)
                     {
                         case 0:
                             Console.WriteLine("Folder successfuly shared.");
+                            AppendNewShare(name,path);
                             break;
                         case 1:
                             Console.WriteLine("Exception Thrown");

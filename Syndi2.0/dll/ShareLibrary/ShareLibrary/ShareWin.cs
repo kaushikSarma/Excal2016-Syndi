@@ -87,7 +87,7 @@ namespace ShareLibrary
             }
         }
 
-        public static uint CreateSharedFolder(string FolderPath, string ShareName, string Description)
+        public static uint CreateSharedFolder(string FolderPath, string ShareName, string Description,int AccessLvl)
         {
             try
             {
@@ -131,7 +131,7 @@ namespace ShareLibrary
                 ManagementObject dacl = new ManagementClass("Win32_Ace");
                 dacl["AccessMask"] = 1179817;
                 dacl["AceFlags"] = 3;
-                dacl["AceType"] = 1;
+                dacl["AceType"] = 0;
                 dacl["Trustee"] = everyone;
 
                 ManagementObject securityDescriptor = new ManagementClass("Win32_SecurityDescriptor");
@@ -142,11 +142,14 @@ namespace ShareLibrary
 
                 // Invoke the "create" method on the ManagementClass object
                 outParams = managementClass.InvokeMethod("Create", inParams, null);
+                if (AccessLvl == 0)
+                    GrantEveryoneRead(@FolderPath);
+                if (AccessLvl == 1)
+                    GrantEveryoneFullControl(@FolderPath);
 
                 // Check to see if the method invocation was successful
                 var result = (uint)(outParams.Properties["ReturnValue"].Value);
-                if (!GrantEveryone(FolderPath))
-                    return 2;
+                
                 return result;
             }
             catch (Exception ex)
@@ -156,14 +159,31 @@ namespace ShareLibrary
             }
         }
 
-        public static Boolean GrantEveryone(String path)
+        public static Boolean GrantEveryoneRead(String path)
         {
             try
             {
                 DirectorySecurity sec = Directory.GetAccessControl(path);
                 // Using this instead of the "Everyone" string means we work on non-English systems.
                 SecurityIdentifier everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
-                sec.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.Modify | FileSystemRights.Synchronize | FileSystemRights.ReadAndExecute, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
+                sec.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.ReadAndExecute | FileSystemRights.Synchronize, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
+                Directory.SetAccessControl(path, sec);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
+        public static Boolean GrantEveryoneFullControl(String path)
+        {
+            try
+            {
+                DirectorySecurity sec = Directory.GetAccessControl(path);
+                // Using this instead of the "Everyone" string means we work on non-English systems.
+                SecurityIdentifier everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
+                sec.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.FullControl | FileSystemRights.Synchronize, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
                 Directory.SetAccessControl(path, sec);
                 return true;
             }
