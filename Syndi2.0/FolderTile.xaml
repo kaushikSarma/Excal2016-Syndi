@@ -5,29 +5,34 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syndi2._0"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Width="192" Height="192">
-    <Grid Margin="0" Width="192" Height="192">
-        <Grid x:Name="FolderContenTile" Margin="0" Width="192" Height="192" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
-            <Grid Height="160" Width="160" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0">
-                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="#99FFFFFF" Height="48" FontSize="32" Margin="0,46,0,0"><Run x:Name="Size"></Run><Run x:Name="SizeUnit" FontSize="16" FontWeight="Bold" Foreground="#9978F3FF"></Run></TextBlock>
-                <TextBlock x:Name="FolderName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="FolderName" VerticalAlignment="Top" Width="160" Foreground="#99FFFFFF" FontSize="15" Height="41" FontWeight="Bold"/>
-                <Grid Height="40" Margin="2,131,96,-11">
-                    <TextBlock x:Name="VideoFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
-                    <Image x:Name="image3" HorizontalAlignment="Left" Height="24" Margin="0" Width="24" VerticalAlignment="Center" IsEnabled="False" Source="Resource/Icons/video-player.png"/>
+             d:DesignHeight="300" d:DesignWidth="300" Width="192" Height="192" Margin="0,0,10,0">
+    <Border Style="{StaticResource FolderButtonBorder}">
+        <Button Margin="0" Width="192" Height="192" Style="{StaticResource FolderButton}">
+            <Grid x:Name="FolderContenTile" Margin="0" Width="192" Height="192" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+                <Grid Height="160" Width="160" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0">
+                    <Border BorderThickness="0,1,0,0" BorderBrush="#FF747474" Margin="0,46,0,70">
+                        <TextBlock HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="#99FFFFFF" Height="44" FontSize="32" Margin="0,-1,0,0"><Run x:Name="Size"></Run><Run x:Name="SizeUnit" FontSize="16" FontWeight="Bold" Foreground="#9978F3FF"></Run></TextBlock>
+                    </Border>
+                    <TextBlock x:Name="FolderName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="FolderName" VerticalAlignment="Top" Width="160" Foreground="#99FFFFFF" FontSize="15" Height="41" FontWeight="Bold"/>
+                    <Grid Margin="2,125,80,0">
+                        <TextBlock x:Name="VideoFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
+                        <Image x:Name="image3" HorizontalAlignment="Left" Height="24" Margin="0" Width="24" VerticalAlignment="Center" IsEnabled="False" Source="Resource/Icons/video-player.png"/>
+                    </Grid>
+                    <Grid Margin="80,90,0,35" Width="80">
+                        <TextBlock x:Name="AudioFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
+                        <Image x:Name="image1" Height="24" Margin="0" Width="24" HorizontalAlignment="Left" Source="Resource/Icons/headphones.png" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Margin="2,90,80,35">
+                        <TextBlock x:Name="ImageFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
+                        <Image x:Name="image" HorizontalAlignment="Left" Height="24" Width="24" Source="Resource/Icons/picture.png" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Margin="80,125,0,0" Width="80">
+                        <TextBlock x:Name="TextFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
+                        <Image x:Name="image2" HorizontalAlignment="Left" Height="24" Margin="0" Width="24" Source="Resource/Icons/file.png" VerticalAlignment="Center"/>
+                    </Grid>
                 </Grid>
-                <Grid Height="40" Margin="69,91,29,29">
-                    <TextBlock x:Name="AudioFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
-                    <Image x:Name="image1" Height="24" Margin="0" Width="24" HorizontalAlignment="Left" Source="Resource/Icons/headphones.png" VerticalAlignment="Center"/>
-                </Grid>
-                <Grid Height="40" Margin="2,91,96,29">
-                    <TextBlock x:Name="ImageFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
-                    <Image x:Name="image" HorizontalAlignment="Left" Height="24" Width="24" Source="Resource/Icons/picture.png" VerticalAlignment="Center"/>
-                </Grid>
-                <Grid Height="40" Margin="69,131,29,-11">
-                    <TextBlock x:Name="TextFiles" HorizontalAlignment="Left" Text="" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="20"/>
-                    <Image x:Name="image2" HorizontalAlignment="Left" Height="24" Margin="0" Width="24" Source="Resource/Icons/file.png" VerticalAlignment="Center"/>
-                </Grid>
+                <Grid HorizontalAlignment="Left" Height="89" Margin="0,103,0,0" VerticalAlignment="Top" Width="192"/>
             </Grid>
-        </Grid>
-    </Grid>
+        </Button>
+    </Border>
 </UserControl>

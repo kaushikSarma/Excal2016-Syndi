@@ -22,43 +22,59 @@ namespace Syndi2._0
     /// </summary>
     public partial class HomePage : Page
     {
-        List<List<string>> PcList;
+        List<Scan.StructDataOfPC> PcList;
         public HomePage()
         {
             InitializeComponent();            
         }
         public void OnPageLoad(object sender, RoutedEventArgs e)
         {
-            PopulatePcList();
+            PopulatePcCmdList();
         }
-        public void PopulatePcCmdList()
+        public async void PopulatePcCmdList()
         {
-            string netBiosName = System.Environment.MachineName;
+            string netBiosName = Environment.MachineName;
             PcName.Text = netBiosName;
-            PcList = NetworkScanner.Scan.RetrievePCNames();
-            int count = 0;// PcList[0].Count + PcList[1].Count - 1;
-            
-            foreach (List<string> L in PcList)
+            await Task.Delay(100);
+            PcList = Scan.DetailsOfPC();
+            int count =  0;
+            PcListTileContainer.Children.Clear();
+            foreach (Scan.StructDataOfPC PC in PcList)
             {
-                foreach(string name in L)
+                count++;
+                CustomTile t = new CustomTile(PC, count);
+                if(PC.TypeOfPC.ToUpper() == "PUBLIC")
+                    t.ContentTileButton.Click += (sender1, ex) => this.Display(t);
+                PcListTileContainer.Children.Add(t);
+                if(PC.NameOfPC == netBiosName)
                 {
-                    if(name != netBiosName)
-                    {
-                        count++;
-                        CustomTile t = new CustomTile(name, count);
-                        t.ContentTileButton.Click += (sender1, ex) => this.Display(t);
-                        PcListTileContainer.Children.Add(t);
-                    }
+                    Display(new CustomTile(PC, 0));
                 }
             }
-
-            NumberOfConnections.Text = (count < 10 ? "0" : "") + count.ToString();
+            if(count > 99)
+            {
+                NumberOfConnections.Text = count.ToString();
+            }
+            else if (count > 9)
+            {
+                NumberOfConnections.Text = "0" + count.ToString();
+            }
+            else
+            {
+                NumberOfConnections.Text = "00" + count.ToString();
+            }
             if (count == 0)
             {
                 availableText.Text = "unavailable";
-                availableText.Foreground = new SolidColorBrush(Colors.Red);
+                availableText.Foreground = new SolidColorBrush(Color.FromArgb(255, 232, 55, 78));//#FFE8554E
+            }
+            else if (count > 0)
+            {
+                availableText.Text = "available";
+                availableText.Foreground = new SolidColorBrush(Color.FromArgb(255, 106, 232, 78));//#FF6AE84E
             }
         }
+        /*
         public void PopulatePcList()
         {
             string netBiosName = System.Environment.MachineName;
@@ -98,6 +114,7 @@ namespace Syndi2._0
             }
             Display(new CustomTile(netBiosName, 0));
         }
+        */
         public void Display(CustomTile sender)
         {
             CurrentViewPc.Text = sender.TileHeader.Text;
@@ -118,9 +135,47 @@ namespace Syndi2._0
             }
         }
 
-        private void BrowseLeftPc_Click(object sender, RoutedEventArgs e)
+        private async void BrowseLeftPc_Click(object sender, RoutedEventArgs e)
         {
-            
+            int i = 0;
+            while (PCScrollViewer.HorizontalOffset != 0 && i < 20)
+            {
+                await Task.Delay(1);
+                i++;
+                PCScrollViewer.ScrollToHorizontalOffset(PCScrollViewer.HorizontalOffset - 10);
+            }
+        }
+
+        private async void BrowseRightPc_Click(object sender, RoutedEventArgs e)
+        {
+            int i = 0;
+            while (PCScrollViewer.HorizontalOffset != PCScrollViewer.ScrollableWidth && i < 20)
+            {
+                await Task.Delay(1);
+                i++;
+                PCScrollViewer.ScrollToHorizontalOffset(PCScrollViewer.HorizontalOffset + 10);
+            }
+        }
+        private async void BrowseLeftFiles_Click(object sender, RoutedEventArgs e)
+        {
+            int i = 0;
+            while (PCFolderScroll.HorizontalOffset != 0 && i < 20)
+            {
+                await Task.Delay(1);
+                i++;
+                PCFolderScroll.ScrollToHorizontalOffset(PCFolderScroll.HorizontalOffset - 10);
+            }
+        }
+
+        private async void BrowseRightFiles_Click(object sender, RoutedEventArgs e)
+        {
+            int i = 0;
+            while (PCFolderScroll.HorizontalOffset != PCFolderScroll.ScrollableWidth && i < 20)
+            {
+                await Task.Delay(1);
+                i++;
+                PCFolderScroll.ScrollToHorizontalOffset(PCFolderScroll.HorizontalOffset + 10);
+            }
         }
     }
 }

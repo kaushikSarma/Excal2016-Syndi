@@ -68,7 +68,6 @@ namespace Syndi2._0
             AudioList = Seperate.GetAudios(path);
             VideoList = Seperate.GetVideos(path);
             TextList = Seperate.GetDocs(path);
-            //var size = DirSize(new DirectoryInfo(path));
             var size = DirSize(new DirectoryInfo(@path));
             FolderContainer.Children.Add(new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size));
         }
@@ -171,6 +170,28 @@ namespace Syndi2._0
                 {
                     System.Windows.Forms.MessageBox.Show("Not allowed in Windows Environment");
                 }
+            }
+        }
+
+        private async void BrowseLeft_Click(object sender, RoutedEventArgs e)
+        {
+            int i = 0;
+            while (SharedFolderScrollViewer.HorizontalOffset != 0 && i < 20)
+            {
+                await Task.Delay(1);
+                i++;
+                SharedFolderScrollViewer.ScrollToHorizontalOffset(SharedFolderScrollViewer.HorizontalOffset - 10);
+            }
+        }
+
+        private async void BrowseRight_Click(object sender, RoutedEventArgs e)
+        {
+            int i = 0;
+            while (SharedFolderScrollViewer.HorizontalOffset != SharedFolderScrollViewer.ScrollableWidth && i < 20)
+            {
+                await Task.Delay(1);
+                i++;
+                SharedFolderScrollViewer.ScrollToHorizontalOffset(SharedFolderScrollViewer.HorizontalOffset + 10);
             }
         }
     }

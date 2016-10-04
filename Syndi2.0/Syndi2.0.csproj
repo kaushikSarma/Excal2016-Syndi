@@ -69,6 +69,9 @@
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SyndiIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="NetworkScanner, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -238,6 +241,9 @@
     <Resource Include="Resource\Icons\headphones.png" />
     <Resource Include="Resource\Icons\picture.png" />
     <Resource Include="Resource\Icons\video-player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SyndiIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

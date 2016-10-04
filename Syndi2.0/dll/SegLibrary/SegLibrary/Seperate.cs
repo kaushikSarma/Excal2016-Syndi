@@ -13,7 +13,7 @@ namespace SegLibrary
         public static List<string> GetVideos(string path)
         {
             List<string> result = new List<string>();
-            var regex = new Regex(@".*\.(mp4|avi|asf|mov|qt|flv|swf|avchd|kmp)", RegexOptions.IgnoreCase);
+            var regex = new Regex(@".*\.(mp4|avi|asf|mov|qt|flv|swf|avchd|kmp|mkv)", RegexOptions.IgnoreCase);
             CurrSearch(path, regex, result);
             DirSearch(path, regex, result);
             return result;
@@ -21,7 +21,7 @@ namespace SegLibrary
         public static List<string> GetImages(string path)
         {
             List<string> result = new List<string>();
-            var regex = new Regex(@".*\.(ani|bmp|cal|fax|gif|img|jbg|jpe|jpeg|mac|pbm|pcd|pcx|pct|pgm|png|ppm|psd|ras|tga|tiff|wmf|jpg)", RegexOptions.IgnoreCase);
+            var regex = new Regex(@".*\.(ani|bmp|cal|fax|gif|img|jbg|jpg|jpe|jpeg|mac|pbm|pcd|pcx|pct|pgm|png|ppm|psd|ras|tga|tiff|wmf|jpg)", RegexOptions.IgnoreCase);
             CurrSearch(path, regex, result);
             DirSearch(path, regex, result);
             return result;
@@ -37,7 +37,7 @@ namespace SegLibrary
         public static List<string> GetAudios(string path)
         {
             List<string> result = new List<string>();
-            var regex = new Regex(@".*\.(pcm|wav|aiff|mp3|aac|ogg|wma|flac|alac|wma)", RegexOptions.IgnoreCase);
+            var regex = new Regex(@".*\.(pcm|wav|aiff|mp3|aac|ogg|wma|flac|alac|wma|m4a)", RegexOptions.IgnoreCase);
             CurrSearch(path, regex, result);
             DirSearch(path, regex, result);
             return result;

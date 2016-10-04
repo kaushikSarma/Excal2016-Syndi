@@ -8,9 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/icons/file.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/icons/headphones.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/icons/picture.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/icons/video-player.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("syndiicon.ico")]
 
 

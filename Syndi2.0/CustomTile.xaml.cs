@@ -20,11 +20,43 @@ namespace Syndi2._0
     /// </summary>
     public partial class CustomTile : UserControl
     {
-        public CustomTile(string Title,int number)
+        public CustomTile(NetworkScanner.Scan.StructDataOfPC PC, int number)
         {
             InitializeComponent();
-            TileHeader.Text = Title;
-            PcNumber.Text = ((number < 9) ? "0" : "") + number.ToString();
+            TileHeader.Text = PC.NameOfPC;
+            if(PC.TypeOfPC.ToUpper() == "PUBLIC")
+            {
+                var SizeinKb = PC.SizeOfSharedFolders;
+                double size;
+                if (SizeinKb >= Math.Pow(1024, 3))
+                {
+                    size = SizeinKb / Math.Pow(1024, 3);
+                    PcSize.Text = size.ToString("F2");
+                    SizeUnit.Text = " GB";
+                }
+                else if (SizeinKb >= Math.Pow(1024, 2))
+                {
+                    size = SizeinKb / Math.Pow(1024, 2);
+                    PcSize.Text = size.ToString("F2");
+                    SizeUnit.Text = " MB";
+                }
+                else if (SizeinKb >= 1024)
+                {
+                    size = SizeinKb / 1024;
+                    PcSize.Text = size.ToString("F2");
+                    SizeUnit.Text = " KB";
+                }
+                else
+                {
+                    PcSize.Text = SizeinKb.ToString();
+                    SizeUnit.Text = " B";
+                }
+            }
+            else
+            {
+                PcSize.Text = "Protected";
+                SizeUnit.Text = "";
+            }
         }
     }
 }

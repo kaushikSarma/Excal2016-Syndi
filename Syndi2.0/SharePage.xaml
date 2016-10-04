@@ -30,11 +30,11 @@
                         <ColumnDefinition Width="1172*"/>
                         <ColumnDefinition Width="48"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="BrowseLeft" Content="&lt;" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" HorizontalAlignment="Left" Width="48"/>
-                    <ScrollViewer Grid.Column="1" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                    <Button x:Name="BrowseLeft" Content="&lt;" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" HorizontalAlignment="Left" Width="48" Click="BrowseLeft_Click"/>
+                    <ScrollViewer x:Name="SharedFolderScrollViewer" Grid.Column="1" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
                         <StackPanel x:Name="FolderContainer" Orientation="Horizontal" Margin="0"/>
                     </ScrollViewer>
-                    <Button x:Name="BrowseRight" Content="&gt;" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center"/>
+                    <Button x:Name="BrowseRight" Content="&gt;" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center" Click="BrowseRight_Click"/>
                 </Grid>
             </Grid>
         </DockPanel>
