@@ -288,17 +288,29 @@ namespace NetworkScanner
         public static long DirSize(DirectoryInfo d)
         {
             long size = 0;
-            // Add file sizes.
-            FileInfo[] fis = d.GetFiles();
-            foreach (FileInfo fi in fis)
+            try
             {
-                size += fi.Length;
+                FileInfo[] fis = d.GetFiles();
+                foreach (FileInfo fi in fis)
+                {
+                    size += fi.Length;
+                }
             }
-            // Add subdirectory sizes.
-            DirectoryInfo[] dis = d.GetDirectories();
-            foreach (DirectoryInfo di in dis)
+            catch (Exception)
             {
-                size += DirSize(di);
+                Console.WriteLine("Not accessible");
+            }
+            try
+            {
+                DirectoryInfo[] dis = d.GetDirectories();
+                foreach (DirectoryInfo di in dis)
+                {
+                    size += DirSize(di);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Not accessible");
             }
             return size;
         }

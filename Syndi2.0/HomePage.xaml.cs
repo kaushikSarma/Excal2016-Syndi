@@ -122,7 +122,14 @@ namespace Syndi2._0
             {
                 PcDetailsContainer.Children.Clear();
                 List<string> folders = Scan.IdentifyFolderNames(sender.TileHeader.Text);
-                SegLibrary.Seperate.CurrSearch("\\" + sender.TileHeader.Text, new System.Text.RegularExpressions.Regex(".*"), folders);
+                try
+                {
+                    SegLibrary.Seperate.CurrSearch("\\" + sender.TileHeader.Text, new System.Text.RegularExpressions.Regex(".*"), folders);
+                }
+                catch (Exception)
+                {
+          
+                }
                 foreach (string file in folders)
                 {
                     Console.WriteLine(file);
@@ -145,7 +152,18 @@ namespace Syndi2._0
                 PCScrollViewer.ScrollToHorizontalOffset(PCScrollViewer.HorizontalOffset - 10);
             }
         }
+        private async void CopyFiles(object sender, RoutedEventArgs e)
+        {
+            string pc = "\\THOUGHT-PLANE-0";
+            string folder = "Papers";
+            string newPath = @"C:\Users\Ankit\Desktop";
+            Boolean complete = NetworkScanner.Scan.CopyFiles(pc, folder, newPath);
+            if (complete)
+                Console.WriteLine("Copy Successful");
+            else
+                Console.WriteLine("Copy Failed");
 
+        }
         private async void BrowseRightPc_Click(object sender, RoutedEventArgs e)
         {
             int i = 0;
