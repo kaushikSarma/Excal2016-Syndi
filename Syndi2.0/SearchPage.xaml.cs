@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SearchLibrary;
 
 namespace Syndi2._0
 {
@@ -23,6 +24,21 @@ namespace Syndi2._0
         public SearchPage()
         {
             InitializeComponent();
+            SearchFolder();
+        }
+        public void SearchFolder()
+        {
+            List<string> pcList = new List<string>();
+            pcList.Add("THOUGHT-PLANE-0");
+            List<string> SearchList = Search.GetSearchList(pcList,"motivate");
+            Console.WriteLine("_____________________Starting Search____________________");
+            foreach (var item in SearchList)
+            {
+                Console.WriteLine("Item" + item);
+                SearchContainer.Children.Add(new ExplorerTile(item));
+            }
+            Console.WriteLine("_____________________End Search_______________________");
+
         }
     }
 }

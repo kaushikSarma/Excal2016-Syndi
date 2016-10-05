@@ -19,6 +19,8 @@
                         <GradientStop Color="#7F000000" Offset="0.434"/>
                     </LinearGradientBrush>
                 </Grid.Background>
+                <local:SearchBox Margin="102,50,0,0"  Width="1148" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Foreground="White" FontFamily="Segoe UI Light" Height="77"/>
+                <StackPanel x:Name="SearchContainer" Orientation="Vertical" Margin="0"></StackPanel>
             </Grid>
         </DockPanel>
     </ScrollViewer>

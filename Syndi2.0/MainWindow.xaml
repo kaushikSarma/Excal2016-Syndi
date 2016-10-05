@@ -31,7 +31,7 @@
             <Button Height="64" Width="48" Margin="0" VerticalAlignment="Stretch" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Stretch" Click="shareButtonClick" ToolTip="Share your folders" Cursor="Hand">
                 <Image x:Name="Share_Icon" Height="24" Width="24" HorizontalAlignment="Center" Source="Resource/Icons/molecule.png" Stretch="Fill" VerticalAlignment="Center" RenderTransformOrigin="0.457,0.486"/>
             </Button>
-            <Button Height="64" Width="48" Margin="0" VerticalAlignment="Stretch" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Stretch" ToolTip="Search" Cursor="Hand">
+            <Button Height="64" Width="48" Margin="0" VerticalAlignment="Stretch" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Stretch" ToolTip="Search" Cursor="Hand" Click="searchButtonClick">
                 <Image x:Name="Search_Icon" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Source="Resource/Icons/search.png" Stretch="Fill" RenderTransformOrigin="0.457,0.486"/>
             </Button>
         </StackPanel>
