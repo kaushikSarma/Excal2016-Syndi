@@ -43,10 +43,10 @@ namespace NetworkScanner
             for (int i = 0; i < PasswordProtectedList.Length; i++)
             {
                 StructDataOfPC s;
-                s.NameOfPC = PublicList[i];
+                s.NameOfPC = PasswordProtectedList[i];
                 s.TypeOfPC = "Password";
-                List<string> NameOfFolders = IdentifyFolderNames(PublicList[i]);
-                long sizeOfBytes = SizeOfSharedFiles(PublicList[i], NameOfFolders);
+                List<string> NameOfFolders = IdentifyFolderNames(PasswordProtectedList[i]);
+                long sizeOfBytes = 0;
                 s.SizeOfSharedFolders = sizeOfBytes;
                 FinalOutput.Add(s);
             }
