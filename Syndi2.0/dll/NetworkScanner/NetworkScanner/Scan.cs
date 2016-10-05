@@ -127,19 +127,18 @@ namespace NetworkScanner
          Copying Files from one PC to other.
          */
 
-        public static bool CopyFiles(string pc, string path, string newPath)
+        public static bool CopyFiles(string @oldPath, string @newPath)
         {
             try
             {
-                string command, oldPath;
-                oldPath = pc + "\\" + path;
-
+                string command;
                 command = "copy " + oldPath + " " + newPath + " /y";
                 string CopyingResult = ViewCommandLineResult(command);
                 return true;
             }
             catch (Exception)
             {
+                Console.WriteLine("Unable to copy files");
                 return false;   
             }
             
