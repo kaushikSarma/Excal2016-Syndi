@@ -13,6 +13,7 @@ namespace NetworkScanner
 
     public class Scan
     {
+        //Creating a struct to return all the details of the PC.
         public struct StructDataOfPC
         {
             public string NameOfPC;
@@ -20,6 +21,7 @@ namespace NetworkScanner
             public long SizeOfSharedFolders;
         }
 
+        //Fetches all the details of any PC.
         public static List<StructDataOfPC> DetailsOfPC()
         {
             List<StructDataOfPC> FinalOutput = new List<StructDataOfPC>();
@@ -54,13 +56,14 @@ namespace NetworkScanner
             return FinalOutput;
         }
 
+        // Gets the result from the command line.
         public static string ViewCommandLineResult(string args)
         {
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
             startInfo.UseShellExecute = false;
-            startInfo.CreateNoWindow = true;
+            startInfo.CreateNoWindow = true; // Helps in supressing the window.
             startInfo.FileName = "cmd.exe";
             startInfo.Arguments = args;
             startInfo.RedirectStandardOutput = true;
@@ -325,6 +328,46 @@ namespace NetworkScanner
             }
 
             return sum;
+        }
+
+        //Recursively lists the inner directories inside a directory.
+        public static List<string> GetInnerDirectories(string path)
+        {
+            List<string> InnerDirectoryNames = new List<string>();
+
+            DirectoryInfo di = new DirectoryInfo(@path);
+            DirectoryInfo[] subDirs = di.GetDirectories();
+            if (subDirs.Length > 0)
+            {
+                foreach (DirectoryInfo subDir in subDirs)
+                {
+                    InnerDirectoryNames.Add(subDir.Name);
+                }
+            }
+
+            return InnerDirectoryNames;
+
+        }
+
+        //Recursively lists the inner files inside a directory.
+        public static List<Tuple<string, long>> GetInnerFiles(string path)
+        {
+            List<Tuple<string, long>> InnerFileDetails = new List<Tuple<string, long>>();
+
+            DirectoryInfo di = new DirectoryInfo(@path);
+            if (di != null)
+            {
+                FileInfo[] subFiles = di.GetFiles();
+                if (subFiles.Length > 0)
+                {
+                    foreach (FileInfo subFile in subFiles)
+                    {
+                        InnerFileDetails.Add(new Tuple<string, long>(subFile.Name, subFile.Length));
+                    }
+                }
+            }
+
+            return InnerFileDetails;
         }
 
     }
