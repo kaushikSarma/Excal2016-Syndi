@@ -52,6 +52,11 @@ namespace SegLibrary
                     if (regex.IsMatch(f))
                         result.Add(f);
                 }
+                foreach (string f in Directory.GetDirectories(sDir, "*"))
+                {
+                    if (regex.IsMatch(f))
+                        result.Add(f);
+                }
             }
             catch (System.Exception excpt)
             {
