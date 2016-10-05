@@ -39,11 +39,6 @@ namespace Syndi2._0
             FolderContainer.Children.Clear();
             foreach (var objShare in sharedList)
             {
-                /*
-                Console.WriteLine(String.Format("{0} -> {1}",
-                     objShare.Properties["Name"].Value, objShare.Properties["Path"].Value));
-                Console.WriteLine(objShare);
-                */
                 string name = objShare.Properties["Name"].Value.ToString();
                 string path = objShare.Properties["Path"].Value.ToString();
                 List<string> ImageList = new List<string>();

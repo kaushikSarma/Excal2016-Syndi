@@ -20,7 +20,7 @@
                     </LinearGradientBrush>
                 </Grid.Background>
                 <TextBlock Text="Share" Margin="102,50,0,0"  Width="auto" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Foreground="White" FontFamily="Segoe UI Light"/>
-                <Button x:Name="openBrowser" Click="openBrowser_Click" Margin="102,98,0,0" Background="#FF8B8B8B" ToolTip="Share new folder" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="360" Height="120">
+                <Button x:Name="openBrowser" Click="openBrowser_Click" Margin="102,98,0,0" Background="#FF8B8B8B" ToolTip="Share new folder" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="360" Height="120" Cursor="Hand">
                     <Image x:Name="image" Height="64" Width="64" Source="Resource/Icons/plus.png"/>
                 </Button>
                 <TextBlock Text="Folders Shared" Margin="102,268,0,0" FontSize="24" Foreground="White" FontFamily="Segoe UI Light" Width="auto" VerticalAlignment="Top" HorizontalAlignment="Left"/>

@@ -1,0 +1,25 @@
+﻿<Page x:Class="Syndi2._0.SearchPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Syndi2._0"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="SearchPage">
+
+    <ScrollViewer PanningDeceleration="0.003" PanningMode="VerticalOnly" PanningRatio="0.5">
+        <DockPanel>
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#CC000000" Offset="0"/>
+                        <GradientStop Offset="1" Color="#CC000000"/>
+                        <GradientStop Color="#33000000" Offset="0.213"/>
+                        <GradientStop Color="#7F000000" Offset="0.434"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+        </DockPanel>
+    </ScrollViewer>
+</Page>

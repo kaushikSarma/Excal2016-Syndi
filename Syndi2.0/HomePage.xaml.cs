@@ -74,47 +74,6 @@ namespace Syndi2._0
                 availableText.Foreground = new SolidColorBrush(Color.FromArgb(255, 106, 232, 78));//#FF6AE84E
             }
         }
-        /*
-        public void PopulatePcList()
-        {
-            string netBiosName = System.Environment.MachineName;
-            PcName.Text = netBiosName;
-            List<String> _ComputerNames = new List<String>();
-            String _ComputerSchema = "Computer";
-            int count = 0;
-            PcListTileContainer.Children.Clear();
-            System.DirectoryServices.DirectoryEntry _WinNTDirectoryEntries = new System.DirectoryServices.DirectoryEntry("WinNT:");
-            foreach (System.DirectoryServices.DirectoryEntry _AvailDomains in _WinNTDirectoryEntries.Children)
-            {
-                Console.WriteLine("List " + _AvailDomains.Name);
-                foreach (System.DirectoryServices.DirectoryEntry _PCNameEntry in _AvailDomains.Children)
-                {
-                    if (_PCNameEntry.SchemaClassName.ToLower().Contains(_ComputerSchema.ToLower()))
-                    {
-                        if(_PCNameEntry.Name.Length > 0)
-                        {
-                            count++;
-                            CustomTile t = new CustomTile(_PCNameEntry.Name, count);
-                            t.ContentTileButton.Click += (sender1, ex) => this.Display(t);
-                            PcListTileContainer.Children.Add(t);
-                        }
-                    }
-                }
-            }
-            NumberOfConnections.Text = ((count < 10) ? "0" : "") + count.ToString() ;
-            if (count == 0)
-            {
-                availableText.Text = "unavailable";
-                availableText.Foreground = new SolidColorBrush(Color.FromArgb(255, 232, 55, 78));//#FFE8554E
-            }
-            else if(count > 0)
-            {
-                availableText.Text = "available";
-                availableText.Foreground = new SolidColorBrush(Color.FromArgb(255, 106, 232, 78));//#FF6AE84E
-            }
-            Display(new CustomTile(netBiosName, 0));
-        }
-        */
         public void Display(CustomTile sender)
         {
             CurrentViewPc.Text = sender.TileHeader.Text;
@@ -122,23 +81,29 @@ namespace Syndi2._0
             {
                 PcDetailsContainer.Children.Clear();
                 List<string> folders = Scan.IdentifyFolderNames(sender.TileHeader.Text);
-                try
-                {
-                    SegLibrary.Seperate.CurrSearch("\\" + sender.TileHeader.Text, new System.Text.RegularExpressions.Regex(".*"), folders);
-                }
-                catch (Exception)
-                {
-          
-                }
+                Console.WriteLine(folders.Count);
+                
+                //SegLibrary.Seperate.CurrSearch("\\" + sender.TileHeader.Text, new System.Text.RegularExpressions.Regex(".*"), folders);
                 foreach (string file in folders)
                 {
                     Console.WriteLine(file);
-                    PcDetailsContainer.Children.Add(new FolderTiles(file));
+                    string name = file;
+                    string path = "\\" + sender.TileHeader.Text + "\\" + file;
+                    List<string> ImageList = new List<string>();
+                    List<string> VideoList = new List<string>();
+                    List<string> AudioList = new List<string>();
+                    List<string> TextList = new List<string>();
+                    ImageList = SegLibrary.Seperate.GetImages(path);
+                    AudioList = SegLibrary.Seperate.GetAudios(path);
+                    VideoList = SegLibrary.Seperate.GetVideos(path);
+                    TextList = SegLibrary.Seperate.GetDocs(path);
+                    var size = SharePage.DirSize(new System.IO.DirectoryInfo(@path));
+                    PcDetailsContainer.Children.Add(new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size));
                 }
             }
             catch
             {
-                PcDetailsContainer.Children.Add(new FolderTiles("No Access"));
+                Console.WriteLine("Exception thrown ! No Access");
             }
         }
 
@@ -152,18 +117,7 @@ namespace Syndi2._0
                 PCScrollViewer.ScrollToHorizontalOffset(PCScrollViewer.HorizontalOffset - 10);
             }
         }
-        private async void CopyFiles(object sender, RoutedEventArgs e)
-        {
-            string pc = "\\THOUGHT-PLANE-0";
-            string folder = "Papers";
-            string newPath = @"C:\Users\Ankit\Desktop";
-            Boolean complete = NetworkScanner.Scan.CopyFiles(pc, folder, newPath);
-            if (complete)
-                Console.WriteLine("Copy Successful");
-            else
-                Console.WriteLine("Copy Failed");
 
-        }
         private async void BrowseRightPc_Click(object sender, RoutedEventArgs e)
         {
             int i = 0;

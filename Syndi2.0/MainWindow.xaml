@@ -12,16 +12,17 @@
     <Window.Background>
         <ImageBrush ImageSource="Resource/SpaceBg.png" Stretch="UniformToFill"></ImageBrush>
     </Window.Background>
-
     <Grid d:LayoutOverrides="TopPosition, BottomPosition">
         <Grid Height="59" VerticalAlignment="Top" Background="#FF111A2E">
             <Image Height="24" Width="24" HorizontalAlignment="Left" VerticalAlignment="Center" Source="Resource/SyndiIcon.png" Margin="11,18,0,17" Stretch="Fill" RenderTransformOrigin="0.446,0.461"/>
             <TextBlock x:Name="textBlock" Margin="46,11,0,18" TextWrapping="Wrap" Text="Syndi" Width="60" FontSize="24" Height="30" HorizontalAlignment="Left" Foreground="White"/>
-            <Border Style="{StaticResource FolderButtonBorder}">
-                <Button x:Name="button" Style="{StaticResource FolderButton}" HorizontalAlignment="Right" Margin="0,0,319,0" Width="59" Height="59" ToolTipService.ToolTip="Refresh Page" Cursor="Hand" Click="RefreshButton_Click">
+            <Border Style="{StaticResource FolderButtonBorder}" Width="59" Height="59" HorizontalAlignment="Right">
+                <Button x:Name="button" Style="{StaticResource FolderButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Width="59" Height="59" ToolTipService.ToolTip="Refresh Page" Cursor="Hand" Click="RefreshButton_Click">
                     <Image x:Name="Refresh_Icon" Source="Resource/Icons/reload.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="27" Height="27"/>
                 </Button>
             </Border>
+            
+            <local:SearchBox />
         </Grid>
         <StackPanel Width="48" Background="#FF212121" Margin="0,59,0,0" HorizontalAlignment="Left">
             <Button Height="64" Width="48" Margin="0" VerticalAlignment="Stretch" BorderThickness="0" HorizontalAlignment="Right" Background="{x:Null}" Click="homeButtonClick" ToolTip="Home" Cursor="Hand">
