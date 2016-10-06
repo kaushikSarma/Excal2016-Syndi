@@ -82,3 +82,16 @@ F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Themes\Generic.baml
 F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.g.resources
 F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2._0.Properties.Resources.resources
 F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\Syndi2.0.csproj.GenerateResource.Cache
+F:\Programming\C#\Syndi2.0\Syndi2.0\bin\Debug\SearchLibrary.dll
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\ExplorerTile.g.cs
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\FolderTile.g.cs
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\FolderTiles.g.cs
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\SearchBox.g.cs
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\SearchPage.g.cs
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\App.baml
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\ExplorerTile.baml
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\FolderTile.baml
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\FolderTiles.baml
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\SearchBox.baml
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\SearchPage.baml

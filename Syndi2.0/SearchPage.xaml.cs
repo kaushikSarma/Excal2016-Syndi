@@ -24,21 +24,27 @@ namespace Syndi2._0
         public SearchPage()
         {
             InitializeComponent();
-            SearchFolder();
+            SearchField.SearchQuery.KeyUp += (sender, ex) => this.CheckEnterQuery(sender, ex);
         }
-        public void SearchFolder()
+        public void CheckEnterQuery(object sender, KeyEventArgs e)
         {
-            List<string> pcList = new List<string>();
-            pcList.Add("THOUGHT-PLANE-0");
-            List<string> SearchList = Search.GetSearchList(pcList,"motivate");
-            Console.WriteLine("_____________________Starting Search____________________");
+            if (e.Key == Key.Enter)
+            {
+                Console.WriteLine(SearchField.SearchQuery.Text);
+                SearchFolder(SearchField.SearchQuery.Text);
+            }
+        }
+
+        public void SearchFolder(string query)
+        {
+            List<List<string>> PcList = NetworkScanner.Scan.RetrievePCNames();
+            List<string> SearchList = Search.GetSearchList(PcList[0],query);
+            SearchContainer.Children.Clear();
             foreach (var item in SearchList)
             {
                 Console.WriteLine("Item" + item);
-                SearchContainer.Children.Add(new ExplorerTile(item));
+                SearchContainer.Children.Add(new ExplorerTile(item, query));
             }
-            Console.WriteLine("_____________________End Search_______________________");
-
         }
     }
 }

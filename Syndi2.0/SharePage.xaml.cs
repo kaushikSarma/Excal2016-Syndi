@@ -33,7 +33,6 @@ namespace Syndi2._0
         }
         public void DisplaySharedFolder()
         {
-            Console.WriteLine("--------------------------Display Function-------------------------------");
             List<ManagementBaseObject> sharedList = new List<ManagementBaseObject>();
             sharedList = ShareWin.GetSharedFiles();
             FolderContainer.Children.Clear();
@@ -41,6 +40,8 @@ namespace Syndi2._0
             {
                 string name = objShare.Properties["Name"].Value.ToString();
                 string path = objShare.Properties["Path"].Value.ToString();
+                Console.WriteLine("Path : " + path);
+                Console.WriteLine("Name : " + name);
                 List<string> ImageList = new List<string>();
                 List<string> VideoList = new List<string>();
                 List<string> AudioList = new List<string>();

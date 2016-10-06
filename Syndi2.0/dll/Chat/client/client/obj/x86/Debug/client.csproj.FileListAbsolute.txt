@@ -1,0 +1,9 @@
+c:\users\rewanth1997\documents\visual studio 2010\Projects\client\client\bin\Debug\client.exe
+c:\users\rewanth1997\documents\visual studio 2010\Projects\client\client\bin\Debug\client.pdb
+c:\users\rewanth1997\documents\visual studio 2010\Projects\client\client\obj\x86\Debug\client.exe
+c:\users\rewanth1997\documents\visual studio 2010\Projects\client\client\obj\x86\Debug\client.pdb
+D:\client\client\obj\x86\Debug\client.exe
+D:\client\client\obj\x86\Debug\client.pdb
+D:\client\client\bin\Debug\client.exe
+D:\client\client\bin\Debug\client.pdb
+D:\client\client\obj\x86\Debug\client.csprojResolveAssemblyReference.cache

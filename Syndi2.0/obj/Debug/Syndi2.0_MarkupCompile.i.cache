@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\obj\Debug\
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Debug\
 Syndi2._0
 none
 false
 DEBUG;TRACE
-F:\Programming\GitRepo\Excal2016-Syndi\Syndi2.0\App.xaml
-7-1728744198
+F:\Programming\C#\Syndi2.0\Syndi2.0\App.xaml
+10-789630021
 
-15551688768
-20815166521
-CustomTile.xaml;FolderTile.xaml;FolderTiles.xaml;HomePage.xaml;MainWindow.xaml;SharePage.xaml;Themes\Generic.xaml;
+18-1346862762
+21-1073311423
+CustomTile.xaml;ExplorerTile.xaml;FolderTile.xaml;FolderTiles.xaml;HomePage.xaml;MainWindow.xaml;SearchBox.xaml;SearchPage.xaml;SharePage.xaml;Themes\Generic.xaml;
 
 True
 

@@ -22,15 +22,16 @@ namespace Syndi2._0
     public partial class MainWindow : Window
     {
         private HomePage hPage = new HomePage();
-        private SharePage sharePage = new SharePage();
+        private SharePage sPage = new SharePage();
         private SearchPage searchPage = new SearchPage();
+        private SettingsPage settingsPage = new SettingsPage();
         public MainWindow()
         {
             InitializeComponent();
         }
         public void OnWindowLoad(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(sharePage);
+            MainFrame.Navigate(sPage);
         }
         private void homeButtonClick(object sender, RoutedEventArgs e)
         {
@@ -39,7 +40,7 @@ namespace Syndi2._0
 
         private void shareButtonClick(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(sharePage);
+            MainFrame.Navigate(sPage);
         }
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
@@ -50,6 +51,10 @@ namespace Syndi2._0
         private void searchButtonClick(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(searchPage);
+        }
+        private void settingsButtonClick(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(settingsPage);
         }
     }
 }

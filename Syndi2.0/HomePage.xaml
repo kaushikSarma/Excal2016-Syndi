@@ -57,7 +57,7 @@
                     <Button x:Name="BrowseLeftFiles" Content="&lt;" Grid.Column="0" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" Width="48" Cursor="Hand" Click="BrowseLeftFiles_Click"/>
                     <Button x:Name="BrowseRightFiles" Content="&gt;" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center" Cursor="Hand" Click="BrowseRightFiles_Click"/>
                     <ScrollViewer x:Name="PCFolderScroll" Grid.Column="1" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Margin="0,2,0,-2">
-                        <StackPanel x:Name="PcDetailsContainer" Margin="0" Orientation="Horizontal"/>
+                        <StackPanel x:Name="PcDetailsContainer" Margin="0" Orientation="Horizontal"></StackPanel>
                     </ScrollViewer>
                 </Grid>
             </Grid>

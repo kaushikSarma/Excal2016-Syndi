@@ -25,7 +25,6 @@ namespace Syndi2._0
             InitializeComponent();
             this.ToolTip = path;
             FolderName.Text = title;
-            //Path.Text = path;
             AudioFiles.Text = audio;
             VideoFiles.Text = video;
             ImageFiles.Text = images;

@@ -22,26 +22,31 @@ namespace Syndi2._0
     /// </summary>
     public partial class HomePage : Page
     {
-        List<Scan.StructDataOfPC> PcList;
+        //Variables
+        public List<Scan.StructDataOfPC> PcList = new List<Scan.StructDataOfPC>();
+
+        //Functions
         public HomePage()
         {
             InitializeComponent();            
         }
         public void OnPageLoad(object sender, RoutedEventArgs e)
         {
-            PopulatePcCmdList();
+            PopulatePcList();
         }
-        public async void PopulatePcCmdList()
+        public async void PopulatePcList()
         {
             string netBiosName = Environment.MachineName;
             PcName.Text = netBiosName;
-            await Task.Delay(100);
+            await Task.Delay(5);
             PcList = Scan.DetailsOfPC();
+            
             int count =  0;
             PcListTileContainer.Children.Clear();
             foreach (Scan.StructDataOfPC PC in PcList)
             {
                 count++;
+                Console.WriteLine(PC.ToString());
                 CustomTile t = new CustomTile(PC, count);
                 if(PC.TypeOfPC.ToUpper() == "PUBLIC")
                     t.ContentTileButton.Click += (sender1, ex) => this.Display(t);
@@ -76,37 +81,60 @@ namespace Syndi2._0
         }
         public void Display(CustomTile sender)
         {
-            CurrentViewPc.Text = sender.TileHeader.Text;
+            PopulateFileList(sender.TileHeader.Text);
+        }
+        public void PopulateFileList(string path) { 
+            CurrentViewPc.Text = path;
             try
             {
                 PcDetailsContainer.Children.Clear();
-                List<string> folders = Scan.IdentifyFolderNames(sender.TileHeader.Text);
-                Console.WriteLine(folders.Count);
+                List<string> folders = Scan.IdentifyFolderNames(path);
                 
-                //SegLibrary.Seperate.CurrSearch("\\" + sender.TileHeader.Text, new System.Text.RegularExpressions.Regex(".*"), folders);
-                foreach (string file in folders)
+                foreach (string folder in folders)
                 {
-                    Console.WriteLine(file);
-                    string name = file;
-                    string path = "\\" + sender.TileHeader.Text + "\\" + file;
+                    string name = folder;
+                    string Path = "\\\\" + path + "\\" + folder;
                     List<string> ImageList = new List<string>();
                     List<string> VideoList = new List<string>();
                     List<string> AudioList = new List<string>();
                     List<string> TextList = new List<string>();
-                    ImageList = SegLibrary.Seperate.GetImages(path);
-                    AudioList = SegLibrary.Seperate.GetAudios(path);
-                    VideoList = SegLibrary.Seperate.GetVideos(path);
-                    TextList = SegLibrary.Seperate.GetDocs(path);
-                    var size = SharePage.DirSize(new System.IO.DirectoryInfo(@path));
-                    PcDetailsContainer.Children.Add(new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size));
+                    ImageList = SegLibrary.Seperate.GetImages(@Path);
+                    AudioList = SegLibrary.Seperate.GetAudios(@Path);
+                    VideoList = SegLibrary.Seperate.GetVideos(@Path);
+                    TextList = SegLibrary.Seperate.GetDocs(@Path);
+                    var size = SharePage.DirSize(new System.IO.DirectoryInfo(@Path));
+                    FolderTile f = new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size);
+                    f.DownloadThis.Click += (sender1, ex) => this.DownloadItem(@Path);
+                    f.MouseDoubleClick += (sender1, ex) => this.ExploreItem(@Path);
+                    PcDetailsContainer.Children.Add(f);
                 }
             }
-            catch
+            catch (Exception e)
             {
                 Console.WriteLine("Exception thrown ! No Access");
+                Console.WriteLine(e + path);
+            }
+        }
+        private async void ExploreItem(string path)
+        {
+            await Task.Delay(5);
+            int indexFrom, indexLength;
+            List<string> Inner = new List<string>();
+            SegLibrary.Seperate.CurrSearch(path,new System.Text.RegularExpressions.Regex(".*"),Inner);
+            PcDetailsContainer.Children.Clear();
+            foreach(string name in Inner)
+            {
+                indexFrom = name.LastIndexOf('\\') + 1;
+                indexLength = name.Length;
+                PcDetailsContainer.Children.Add(new FolderTiles(name.Substring(indexFrom, indexLength - indexFrom)));
             }
         }
 
+        private async void DownloadItem(string path)
+        {
+            await Task.Delay(5);
+            Scan.CopyFiles(path,"O:\\");
+        }
         private async void BrowseLeftPc_Click(object sender, RoutedEventArgs e)
         {
             int i = 0;

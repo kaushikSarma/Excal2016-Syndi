@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("syndiicon.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/icons/download.png")]
 
 
