@@ -1,0 +1,1 @@
+Syndi is a free filesharing tool for local area networks. Syndi allows you to share files with other users in the same network more efficiently. It automatically detects other users in the same Network and lets you browse trough their shares. Syndi has a very fast search function that allows you to search through all the shares in the whole network in just a few seconds!
