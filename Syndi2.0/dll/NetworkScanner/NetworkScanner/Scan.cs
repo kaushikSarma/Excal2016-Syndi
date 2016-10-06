@@ -135,7 +135,7 @@ namespace NetworkScanner
             try
             {
                 string command;
-                command = "robocopy " + oldPath + " " + newPath + " /e";
+                command = "/C robocopy " + oldPath + " " + newPath + " /e";
                 string CopyingResult = ViewCommandLineResult(command);
                 return true;
             }

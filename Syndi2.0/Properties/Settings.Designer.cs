@@ -23,12 +23,15 @@ namespace Syndi2._0.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Path {
             get {
                 return ((string)(this["Path"]));
+            }
+            set {
+                this["Path"] = value;
             }
         }
     }
