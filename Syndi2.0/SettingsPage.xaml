@@ -19,6 +19,9 @@
                         <GradientStop Color="#7F000000" Offset="0.434"/>
                     </LinearGradientBrush>
                 </Grid.Background>
+                <TextBlock Text="All Files Are Being Stored at ...........?" Margin="102,50,0,0"  Width="812" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="54" Foreground="White" FontFamily="Segoe UI Light" Height="101"/>
+                <TextBlock x:Name="DefaultPath" Margin="102,215,0,0" Background="WhiteSmoke" Width="812" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Foreground="Black" FontFamily="Segoe UI Light" Height="45"/>
+                <Button x:Name="SetPath" Content="Set" Background="Black" BorderBrush="{x:Null}" Foreground="White" FontSize="32" FontFamily="MS Gothic" Margin="919,215,257,508" Height="45" VerticalAlignment="Center" Click="SetDefaultPath"/>
             </Grid>
         </DockPanel>
     </ScrollViewer>
