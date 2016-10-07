@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.DirectoryServices;
 using NetworkScanner;
-using System.IO;
     
 namespace Syndi2._0
 {
@@ -133,14 +132,13 @@ namespace Syndi2._0
 
         private async void DownloadItem(string path)
         {
+            Console.WriteLine("Copying started");
             await Task.Delay(5);
-            Console.WriteLine("Copy initiated");
-            var destination = Properties.Settings.Default["Path"].ToString();
-            Console.WriteLine(destination);
-            if (Directory.Exists(destination))
-                Scan.CopyFiles(path, destination.ToString());
-            else
-                System.Windows.Forms.MessageBox.Show("Invalid Path, Go to the settings to change it");
+            Console.WriteLine("Copying started after timer");
+            Console.WriteLine(path);
+            System.Threading.Thread copyFile = new System.Threading.Thread(() => Scan.CopyFiles(path, "O:\\Download"));
+            copyFile.Start();
+            
         }
         private async void BrowseLeftPc_Click(object sender, RoutedEventArgs e)
         {

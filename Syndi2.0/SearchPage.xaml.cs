@@ -24,27 +24,89 @@ namespace Syndi2._0
         public SearchPage()
         {
             InitializeComponent();
+            List<List<string>> PcList = InitializePcList();
+            SearchField.SearchButton.Click += (sender, ex) => this.SearchButtonClick(sender, ex);
             SearchField.SearchQuery.KeyUp += (sender, ex) => this.CheckEnterQuery(sender, ex);
+            InitializePcCombo(PcList);
         }
+        public void InitializePcCombo(List<List<string>> PC)
+        {
+            CheckBox c = new CheckBox();
+            SolidColorBrush ItemsColor = new SolidColorBrush(Color.FromArgb(80, 255, 255, 250));
+            c.FontSize = 20;
+            c.Foreground = ItemsColor;
+            c.Content = "Select all" ;
+            c.Click += (sender1, e) => this.SelectItem(sender1, e);
+            SelectPC.Items.Add(c);
+            foreach (string PCName in PC[0])
+            {
+                c = new CheckBox();
+                c.Content = PCName;
+                c.Foreground = ItemsColor;
+                c.Click += (sender1, e) => this.SelectItem(sender1, e);
+                SelectPC.Items.Add(c);
+            }
+        }
+        public void SelectItem(object sender, RoutedEventArgs e)
+        {
+            CheckBox c = (CheckBox)sender;
+
+            if((bool)c.IsChecked) {
+                if(c.Content.ToString() == "Select all")
+                {
+                    foreach (CheckBox check in SelectPC.Items)
+                    {
+                        check.IsChecked = true;
+                    }
+                }
+            }
+            else
+            {
+                if (c.Content.ToString() == "Select all")
+                {
+                    foreach (CheckBox check in SelectPC.Items)
+                    {
+                        check.IsChecked = false;
+                    }
+                }
+            }
+        }
+        public List<List<string>> InitializePcList()
+        {
+            return NetworkScanner.Scan.RetrievePCNames();
+        }
+
         public void CheckEnterQuery(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                Console.WriteLine(SearchField.SearchQuery.Text);
                 SearchFolder(SearchField.SearchQuery.Text);
             }
         }
 
-        public void SearchFolder(string query)
+        public async void SearchFolder(string query)
         {
-            List<List<string>> PcList = NetworkScanner.Scan.RetrievePCNames();
-            List<string> SearchList = Search.GetSearchList(PcList[0],query);
+            await Task.Delay(10);
+            List<string> PcList = new List<string>();
             SearchContainer.Children.Clear();
-            foreach (var item in SearchList)
+            foreach (var item in SelectPC.Items)
             {
-                Console.WriteLine("Item" + item);
+                CheckBox ite= (CheckBox)item;
+                if(ite.IsChecked == true && ite.Content.ToString() != "Select all")
+                {
+                    PcList.Add(ite.Content.ToString());
+                }
+            }
+            List<string> SearchList = Search.GetSearchList(PcList, query);
+            foreach(var item in SearchList)
+            {
                 SearchContainer.Children.Add(new ExplorerTile(item, query));
             }
+        }
+
+        public void SearchButtonClick(object sender, RoutedEventArgs e)
+        {
+            SearchFolder(SearchField.SearchQuery.Text);
         }
     }
 }

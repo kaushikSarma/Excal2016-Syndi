@@ -39,5 +39,10 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ControlTemplate x:Key="CheckBoxTemplate" TargetType="{x:Type CheckBox}">
+            <Grid Width="173" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <CheckBox Foreground="#ffffff"></CheckBox>
+            </Grid>
+        </ControlTemplate>
     </Application.Resources>
 </Application>

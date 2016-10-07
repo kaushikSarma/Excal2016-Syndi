@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Syndi2._0"
       mc:Ignorable="d" 
-      d:DesignHeight="768" d:DesignWidth="1366"
-      Title="SearchPage">
+          d:DesignHeight="768" d:DesignWidth="1366"
+          Title="SearchPage">
 
     <ScrollViewer PanningDeceleration="0.003" PanningMode="VerticalOnly" PanningRatio="0.5">
         <DockPanel>
@@ -19,8 +19,12 @@
                         <GradientStop Color="#7F000000" Offset="0.434"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <StackPanel x:Name="SearchContainer" Orientation="Vertical" Margin="0"></StackPanel>
-                <local:SearchBox x:Name="SearchField" Margin="102,50,0,0"  Width="1148" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Foreground="White" FontFamily="Segoe UI Light" Height="77"/>
+                <local:SearchBox x:Name="SearchField" Margin="48,48,0,0"  Width="564" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Foreground="White" FontFamily="Segoe UI Light" Height="77"/>
+                <Border BorderThickness="0,0,0,2" BorderBrush="#9917ABFF" HorizontalAlignment="Right" Margin="0,88,48,0" VerticalAlignment="Top" Width="200">
+                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" FontWeight="Bold" FontSize="13.333" Foreground="#99FFFFFF" Width="200" Opacity="0.8"><Run Text="Select search location"/><LineBreak/><Run/></TextBlock>
+                </Border>
+                <ListBox x:Name="SelectPC" HorizontalAlignment="Right" Margin="0,150,48,0" Width="200" Background="{x:Null}" BorderBrush="#FF176481" BorderThickness="0" Foreground="#ffffff"/>
+                <StackPanel x:Name="SearchContainer" Orientation="Vertical" Margin="0,150,253,369" Width="Auto"/>
             </Grid>
         </DockPanel>
     </ScrollViewer>

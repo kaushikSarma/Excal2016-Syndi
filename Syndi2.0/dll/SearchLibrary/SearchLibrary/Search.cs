@@ -24,7 +24,7 @@ namespace SearchLibrary
                 foreach (var folder in folders)
                 {
                     List<string> tmp = new List<string>();
-                    string appendpath = path + @"\\" + folder;
+                    string appendpath = path + @"\\" + folder.Trim();
                     // Console.WriteLine(appendpath);
                     Seperate.DirSearch(appendpath, regex, tmp);
                     result.AddRange(tmp);

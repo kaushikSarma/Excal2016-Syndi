@@ -5,11 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syndi2._0"
              mc:Ignorable="d" 
-             d:DesignHeight="80" d:DesignWidth="1366" Height="80">
-    <Grid Height="80">
-        <TextBlock x:Name="File" HorizontalAlignment="Left" Text="" Margin="135,14,0,48" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="13.333"/>
-        <TextBlock x:Name="Path" HorizontalAlignment="Left" Text="" Margin="135,48,0,14" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="13.333"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="File" VerticalAlignment="Top" Height="18" Width="125" Margin="10,14,0,0" Foreground="#FF81C9FB" FontWeight="Bold"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="18" Margin="10,48,0,0" TextWrapping="Wrap" Text="Location" VerticalAlignment="Top" Width="120" Foreground="#FF85FFB7" FontWeight="Bold"/>
-    </Grid>
+             d:DesignHeight="80" d:DesignWidth="800" Height="80">
+    <Border Style="{StaticResource FolderButtonBorder}" Height="80" Width="800">
+        <Button x:Name="button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Style="{StaticResource FolderButton}">
+            <StackPanel Orientation="Horizontal" Width="800" Height="80" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid Width="720" Height="80" Margin="0" VerticalAlignment="Stretch">
+                    <TextBlock x:Name="File" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="13.333" Margin="80,12,0,50" Width="630" Text="file"/>
+                    <TextBlock x:Name="Path" HorizontalAlignment="Left" Text="location" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="#66FFFFFF" FontSize="13.333" Margin="80,30,0,10" Height="40" Width="630"/>
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="File" VerticalAlignment="Top" Height="18" Width="56" Foreground="#FF81C9FB" FontWeight="Bold" Margin="24,12,0,0"/>
+                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="Location" VerticalAlignment="Top" Width="56" Foreground="#FF85FFB7" FontWeight="Bold" Margin="24,30,0,0"/>
+                </Grid>
+                <Button x:Name="DownloadThis" HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="80" Margin="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <Image x:Name="image4" Height="20" Width="20" Source="Resource/Icons/download.png"/>
+                </Button>
+            </StackPanel>
+        </Button>
+    </Border>
 </UserControl>
