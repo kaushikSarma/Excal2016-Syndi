@@ -11,6 +11,111 @@ using System.Threading.Tasks;
 namespace ListingPC
 {
 
+    public class FolderSize {
+
+        public static long DirSize(DirectoryInfo d)
+        {
+            long size = 0;
+            // Add file sizes.
+            FileInfo[] fis = d.GetFiles();
+            foreach (FileInfo fi in fis)
+            {
+                size += fi.Length;
+            }
+            // Add subdirectory sizes.
+            DirectoryInfo[] dis = d.GetDirectories();
+            foreach (DirectoryInfo di in dis)
+            {
+                size += DirSize(di);
+            }
+            return size;
+        }
+
+
+        public static long SizeOfSharedFiles(string pc)
+        {
+            string command, outputDump;
+            List<string> FoldersList = new List<string>();
+
+            command = @"/C net view \\";
+            command += pc;
+
+            outputDump = Testing.timeout(command);
+            if (outputDump == "Error")
+            {
+                return 0;
+            }
+            foreach (Match match in Regex.Matches(outputDump, @"(.{1}.*?)Disk(.*)([^ {2,10}]*)\n"))
+                FoldersList.Add(match.Groups[1].Value);
+
+            long sum = 0;
+            var folderNamesArray = FoldersList.ToArray();
+            command = "\\\\" + pc;
+            for (int i = 0; i < folderNamesArray.Length; i++)
+            {
+                sum += DirSize(new DirectoryInfo(command + "\\" + folderNamesArray[i]));
+            }
+
+            return sum;
+        }
+
+        public struct SharedFolderSize
+        {
+            public string name;
+            public long size;
+        }
+        public static long val1, val2, val3;
+        public static string name1, name2, name3;
+
+        public static List<SharedFolderSize> CaluclateSharedFolderSize(List<Testing.DataOfPC> pcList)
+        {
+            List<SharedFolderSize> ListSize = new List<SharedFolderSize>();
+            SharedFolderSize s;
+            try
+            {
+                
+                for (int v = 0; v < pcList.ToArray().Length + 3; )
+                {
+                    name1 = pcList.ToArray()[v].Name;
+                    name2 = pcList.ToArray()[v + 1].Name;
+                    name3 = pcList.ToArray()[v + 2].Name;
+
+                    Thread threadx = new Thread(() => { val1 = SizeOfSharedFiles(name1); });
+                    Thread thready = new Thread(() => { val2 = SizeOfSharedFiles(name1); });
+                    Thread threadz = new Thread(() => { val3 = SizeOfSharedFiles(name1); });
+
+                    threadx.Start();
+                    thready.Start();
+                    threadz.Start();
+
+                    threadx.Join();
+                    thready.Join();
+                    threadz.Join();
+
+                    s.name = name1;
+                    s.size = val1;
+                    ListSize.Add(s);
+
+                    s.name = name2;
+                    s.size = val2;
+                    ListSize.Add(s);
+
+                    s.name = name3;
+                    s.size = val3;
+                    ListSize.Add(s);
+
+                    v += 3;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("**Ignore : " + e);
+            }
+            return ListSize;
+        }
+    
+    }
+
     public class Testing
     {
         private ManualResetEvent _doneEvent;
