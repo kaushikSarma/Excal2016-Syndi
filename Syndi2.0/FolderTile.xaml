@@ -37,6 +37,11 @@
                         <Image x:Name="image4" Height="14" Width="14" Source="Resource/Icons/download.png"/>
                     </Button>
                 </Border>
+                <Border Style="{StaticResource FolderButtonBorder}">
+                    <Button x:Name="RemoveThis" Margin="158,158,10,10" Width="24" Height="24" BorderBrush="{x:Null}" Foreground="White" Background="Black" ToolTip="Dowload this">
+                        <Image x:Name="image5" Height="14" Width="14" Source="Resource/Icons/download.png"/>
+                    </Button>
+                </Border>
             </Grid>
         </Button>
     </Border>

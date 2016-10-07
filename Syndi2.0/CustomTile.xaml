@@ -6,12 +6,17 @@
              xmlns:local="clr-namespace:Syndi2._0"
              mc:Ignorable="d" 
              d:DesignHeight="192" d:DesignWidth="192" Width="192" Height="192">
-    <Border Style="{StaticResource FolderButtonBorder}">
-        <Button x:Name="ContentTileButton" Style="{StaticResource FolderButton}" Width="192" Height="192" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" ToolTip="Explore this PC">
-            <Grid Height="160" Width="160">
-                <TextBlock HorizontalAlignment="Center" Height="139" TextWrapping="Wrap" VerticalAlignment="Center" Width="160" Foreground="#4C78F3FF" Margin="0,21,0,0"><Run  x:Name="PcSize"  Text="00" FontSize="40"/><Run x:Name="SizeUnit" FontSize="15" Foreground="#99FFFFFF" FontWeight="Bold"/></TextBlock>
-                <TextBlock x:Name="TileHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" FontWeight="Bold" Margin="0,0,-6,0"/>
-            </Grid>
+    <Grid>
+        <Border Style="{StaticResource FolderButtonBorder}">
+            <Button x:Name="ContentTileButton" Style="{StaticResource FolderButton}" Width="192" Height="192" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" ToolTip="Explore this PC">
+                <Grid Height="160" Width="160">
+                    <TextBlock HorizontalAlignment="Center" Height="139" TextWrapping="Wrap" VerticalAlignment="Center" Width="160" Foreground="#4C78F3FF" Margin="0,21,0,0"><Run  x:Name="PcSize"  Text="00" FontSize="40"/><Run x:Name="SizeUnit" FontSize="15" Foreground="#99FFFFFF" FontWeight="Bold"/></TextBlock>
+                    <TextBlock x:Name="TileHeader" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tile Header" VerticalAlignment="Top" Width="166" Foreground="#99FFFFFF" FontWeight="Bold" Margin="0,0,-6,0"/>
+                </Grid>
+            </Button>
+        </Border>
+        <Button x:Name="RemoveShare" Margin="158,158,10,10" Width="24" Height="24" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" ToolTip="Dowload this">
+            <Image x:Name="image4" Height="14" Width="14" Source="Resource/Icons/download.png"/>
         </Button>
-    </Border>
+    </Grid>
 </UserControl>

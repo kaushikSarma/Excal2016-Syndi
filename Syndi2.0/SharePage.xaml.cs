@@ -51,7 +51,9 @@ namespace Syndi2._0
                 VideoList = Seperate.GetVideos(path);
                 TextList = Seperate.GetDocs(path);
                 var size = DirSize(new DirectoryInfo(@path));
-                FolderContainer.Children.Add(new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size));
+                FolderTile f = new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size);
+                f.RemoveThis.Click += (sender1, ex) => this.RemoveShare(name);
+                FolderContainer.Children.Add(f);
             }
         }
         public void AppendNewShare(string name,string path)
@@ -65,8 +67,27 @@ namespace Syndi2._0
             VideoList = Seperate.GetVideos(path);
             TextList = Seperate.GetDocs(path);
             var size = DirSize(new DirectoryInfo(@path));
-            FolderContainer.Children.Add(new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size));
+            FolderTile f = new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size);
+            f.RemoveThis.Click += (sender1, ex) => this.RemoveShare(name);
+            FolderContainer.Children.Add(f);
         }
+
+        public void RemoveShare(string shareName)
+        {
+            int val = ShareWin.RemoveSharedFolder(shareName);
+            if (val == 0)
+            {
+                Console.WriteLine("Unable to unshare directory.");
+                System.Windows.Forms.MessageBox.Show("Unable to unshare directory.");
+            }
+            else
+            {
+                Console.WriteLine("Folder successfuly unshared.");
+                System.Windows.Forms.MessageBox.Show("Folder successfuly unshared.");
+            }
+            DisplaySharedFolder();
+        }
+    
         public static long DirSize(DirectoryInfo d)
         {
             //if (d.ToString() == @"C:\Users")
