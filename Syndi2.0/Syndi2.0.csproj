@@ -73,6 +73,10 @@
     <ApplicationIcon>SyndiIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ListingPC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\ListingPC.dll</HintPath>
+    </Reference>
     <Reference Include="NetworkScanner, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\NetworkScanner.dll</HintPath>
@@ -131,6 +135,9 @@
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NavigationButton.xaml.cs">
+      <DependentUpon>NavigationButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SearchBox.xaml.cs">
       <DependentUpon>SearchBox.xaml</DependentUpon>
     </Compile>
@@ -175,6 +182,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NavigationButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SearchBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -278,6 +289,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icons\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Icons\cancel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

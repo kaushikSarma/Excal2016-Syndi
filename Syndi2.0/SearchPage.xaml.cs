@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SearchLibrary;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Syndi2._0
 {
@@ -37,12 +39,14 @@ namespace Syndi2._0
             c.Foreground = ItemsColor;
             c.Content = "Select all" ;
             c.Click += (sender1, e) => this.SelectItem(sender1, e);
+            c.IsChecked = true;
             SelectPC.Items.Add(c);
             foreach (string PCName in PC[0])
             {
                 c = new CheckBox();
                 c.Content = PCName;
                 c.Foreground = ItemsColor;
+                c.IsChecked = true;
                 c.Click += (sender1, e) => this.SelectItem(sender1, e);
                 SelectPC.Items.Add(c);
             }
@@ -98,15 +102,50 @@ namespace Syndi2._0
                 }
             }
             List<string> SearchList = Search.GetSearchList(PcList, query);
+            SearchContainer.Children.Clear();
+            int count = 0;
             foreach(var item in SearchList)
             {
-                SearchContainer.Children.Add(new ExplorerTile(item, query));
+                Console.WriteLine(item);
+                count++;
+                var tile = new ExplorerTile(item, query);
+                tile.DownloadThis.Click += (sender, ex) => DownloadItem(@tile.Path.Tag.ToString());
+                SearchContainer.Children.Add(tile);
+            }
+            if(count == 0)
+            {
+                TextBlock t = new TextBlock();
+                t.Text = "No Results to Display";
+                t.FontSize = 40;
+                t.HorizontalAlignment = HorizontalAlignment.Center;
+                t.Foreground = new SolidColorBrush(Color.FromArgb(100, 250, 250, 250));
+                SearchContainer.Children.Add(t);
             }
         }
 
         public void SearchButtonClick(object sender, RoutedEventArgs e)
         {
             SearchFolder(SearchField.SearchQuery.Text);
+        }
+        private async void DownloadItem(string path)
+        {
+            Console.WriteLine("Copying started");
+            await Task.Delay(5);
+            Console.WriteLine("Copying started after timer");
+            Console.WriteLine(path);
+            var destn = Properties.Settings.Default["Path"].ToString();
+            if (Directory.Exists(destn))
+            {
+                System.Threading.Thread copyFile = new System.Threading.Thread(() => NetworkScanner.Scan.CopyFiles(path, destn));
+                copyFile.Start();
+                copyFile.Join();
+                System.Windows.Forms.MessageBox.Show("Successfully downloaded files");
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Invalid path or path not set go to settings");
+            }
+
         }
     }
 }

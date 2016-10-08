@@ -5,8 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syndi2._0"
              mc:Ignorable="d" Height="200" Width="200">
-    <Grid Margin="0,0,10,0">
-        <TextBlock x:Name="FolderName" HorizontalAlignment="Left" Height="32" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="170" FontSize="10.667" Foreground="White" FontWeight="Bold"/>
-        <Image x:Name="image" Source="Resource/Icons/folder.png" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="64" Margin="10,42,0,0"/>
+    <Grid Margin="0,0,10,0" Cursor="Hand">
+        <Border HorizontalAlignment="Left" Height="52" Margin="10,10,0,0" VerticalAlignment="Top" Width="170" BorderThickness="0,0,0,2" BorderBrush="#99FFFFFF" >
+            <TextBlock x:Name="FolderName"  TextWrapping="Wrap" Text="TextBlock" FontSize="10.667" Foreground="White" FontWeight="Bold"/>
+        </Border>
+        <Image x:Name="image" Source="Resource/Icons/folder.png" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="64" Margin="10,67,0,0"/>
+        <Button x:Name="DownloadThis" HorizontalAlignment="Left" Margin="132,142,0,0" VerticalAlignment="Top" Width="48" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" BorderThickness="0" ToolTip="Download this file" Height="48">
+            <Image x:Name="image1" Height="16" Width="16" Source="Resource/Icons/download.png"/>
+        </Button>
     </Grid>
 </UserControl>

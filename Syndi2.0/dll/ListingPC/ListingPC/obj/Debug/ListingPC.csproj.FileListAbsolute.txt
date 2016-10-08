@@ -2,3 +2,8 @@ c:\users\rewanth1997\documents\visual studio 2010\Projects\ListingPC\ListingPC\b
 c:\users\rewanth1997\documents\visual studio 2010\Projects\ListingPC\ListingPC\bin\Debug\ListingPC.pdb
 c:\users\rewanth1997\documents\visual studio 2010\Projects\ListingPC\ListingPC\obj\Debug\ListingPC.dll
 c:\users\rewanth1997\documents\visual studio 2010\Projects\ListingPC\ListingPC\obj\Debug\ListingPC.pdb
+F:\Programming\C#\Syndi2.0\Syndi2.0\dll\ListingPC\ListingPC\bin\Debug\ListingPC.dll
+F:\Programming\C#\Syndi2.0\Syndi2.0\dll\ListingPC\ListingPC\bin\Debug\ListingPC.pdb
+F:\Programming\C#\Syndi2.0\Syndi2.0\dll\ListingPC\ListingPC\obj\Debug\ListingPC.csprojResolveAssemblyReference.cache
+F:\Programming\C#\Syndi2.0\Syndi2.0\dll\ListingPC\ListingPC\obj\Debug\ListingPC.dll
+F:\Programming\C#\Syndi2.0\Syndi2.0\dll\ListingPC\ListingPC\obj\Debug\ListingPC.pdb

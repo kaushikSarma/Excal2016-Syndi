@@ -40,8 +40,6 @@ namespace Syndi2._0
             {
                 string name = objShare.Properties["Name"].Value.ToString();
                 string path = objShare.Properties["Path"].Value.ToString();
-                Console.WriteLine("Path : " + path);
-                Console.WriteLine("Name : " + name);
                 List<string> ImageList = new List<string>();
                 List<string> VideoList = new List<string>();
                 List<string> AudioList = new List<string>();
@@ -52,7 +50,9 @@ namespace Syndi2._0
                 TextList = Seperate.GetDocs(path);
                 var size = DirSize(new DirectoryInfo(@path));
                 FolderTile f = new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size);
-                f.RemoveThis.Click += (sender1, ex) => this.RemoveShare(name);
+                f.DownloadThis.Visibility = Visibility.Hidden;
+                f.ShareCancel.Visibility = Visibility.Visible;
+                f.ShareCancel.Click += (sender1, ex) => this.RemoveShare(f.FolderName.Text);
                 FolderContainer.Children.Add(f);
             }
         }
@@ -68,7 +68,7 @@ namespace Syndi2._0
             TextList = Seperate.GetDocs(path);
             var size = DirSize(new DirectoryInfo(@path));
             FolderTile f = new FolderTile(name, path, VideoList.Count.ToString(), AudioList.Count.ToString(), TextList.Count.ToString(), ImageList.Count.ToString(), size);
-            f.RemoveThis.Click += (sender1, ex) => this.RemoveShare(name);
+            f.ShareCancel.Click += (sender1, ex) => this.RemoveShare(f.FolderName.Text);
             FolderContainer.Children.Add(f);
         }
 
