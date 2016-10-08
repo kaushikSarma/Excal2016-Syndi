@@ -102,6 +102,7 @@ namespace NetworkScanner
             startInfo.RedirectStandardOutput = true;
             startInfo.RedirectStandardError = true;
             startInfo.UseShellExecute = false;
+            startInfo.CreateNoWindow = true; // Helps in supressing the window.
             process.StartInfo = startInfo;
             process.Start();
 
@@ -164,25 +165,28 @@ namespace NetworkScanner
         /*
         Connecting to the protected ACTIVE PC's available
        */
-        public static string ShowFiles(string pc, string username, string password)
+        public static bool ShowFiles(string pc, string username, string password)
         {
-            
+
             string command, outputDump;
             command = "/C net use \\\\" + pc + " /user:" + username + " " + password + " /persistent:no";
             outputDump = ViewDirectoryListing(command);
+            Console.WriteLine(outputDump);
             bool AuthenticationError = outputDump.StartsWith("||||| ");
             if (!AuthenticationError)
             {
                 command = "/C net view \\\\" + pc;
                 outputDump = ViewDirectoryListing(command);
-                return outputDump;
+                Console.WriteLine(outputDump);
+                return true;
             }
             else
             {
                 outputDump = outputDump.Remove(0, 6);
-                return outputDump;
+                Console.WriteLine(outputDump);
+                return false;
             }
-            
+
         }
 
 

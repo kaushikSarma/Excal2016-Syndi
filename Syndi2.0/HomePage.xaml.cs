@@ -15,7 +15,8 @@ using System.Windows.Shapes;
 using System.DirectoryServices;
 using NetworkScanner;
 using System.IO;
-    
+using System.Windows.Forms;
+
 namespace Syndi2._0
 {
     /// <summary>
@@ -72,6 +73,8 @@ namespace Syndi2._0
                 CustomTile t = new CustomTile(PC, count);
                 if (PC.TypeOfPC.ToUpper() == "PUBLIC")
                     t.ContentTileButton.Click += (sender1, ex) => this.Display(t);
+                else
+                    t.ContentTileButton.Click += (sender1, ex) => this.GrantAccess(PC.NameOfPC);
                 PcListTileContainer.Children.Add(t);
                 if (PC.NameOfPC == netBiosName)
                 {
@@ -117,6 +120,8 @@ namespace Syndi2._0
                 CustomTile t = new CustomTile(PC, count);
                 if(PC.TypeOfPC.ToUpper() == "PUBLIC")
                     t.ContentTileButton.Click += (sender1, ex) => this.Display(t);
+                else
+                    t.ContentTileButton.Click += (sender1, ex) => this.GrantAccess(PC.NameOfPC);
                 PcListTileContainer.Children.Add(t);
                 if(PC.NameOfPC == netBiosName)
                 {
@@ -145,6 +150,33 @@ namespace Syndi2._0
                 availableText.Text = "available";
                 availableText.Foreground = new SolidColorBrush(Color.FromArgb(255, 106, 232, 78));//#FF6AE84E
             }
+        }
+        public async void GrantAccess(string name)
+        {
+            await Task.Delay(5);
+            List<string> accessToken = Prompt.ShowDialog();
+            Console.WriteLine("____________________________GrantAccess_________________________________");
+            Console.WriteLine(name);
+            Console.WriteLine(accessToken.ToArray()[0]);
+            Console.WriteLine(accessToken.ToArray()[1]);
+            if(accessToken==null)
+            {
+                System.Windows.Forms.MessageBox.Show("Invalid Credentials");
+                return;
+            }
+            if (accessToken.Count==2)
+            {
+                bool output = NetworkScanner.Scan.ShowFiles(name,accessToken.ToArray()[0], accessToken.ToArray()[1]);
+                if (output)
+                {
+                    PopulatePc();
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Invalid Credentials");
+                }
+            }
+
         }
         public async void Display(CustomTile sender)
         {
@@ -331,6 +363,40 @@ namespace Syndi2._0
                 i++;
                 PCFolderScroll.ScrollToHorizontalOffset(PCFolderScroll.HorizontalOffset + 10);
             }
+        }
+    }
+    public static class Prompt
+    {
+        public static List<string> ShowDialog()
+        {
+            Form prompt = new Form()
+            {
+                Width = 500,
+                Height = 350,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            System.Windows.Forms.Label textLabel1= new System.Windows.Forms.Label() { Left = 50, Top = 20, Text = "Username:" };
+            System.Windows.Forms.TextBox textBox1 = new System.Windows.Forms.TextBox() { Left = 50, Top = 50, Width = 400 };
+            System.Windows.Forms.Label textLabel2 = new System.Windows.Forms.Label() { Left = 50, Top = 80, Text = "Password" };
+            System.Windows.Forms.TextBox textBox2 = new System.Windows.Forms.TextBox() { Left = 50, Top = 110, Width = 400 };
+            System.Windows.Forms.Button confirmation = new System.Windows.Forms.Button() { Text = "Ok", Left = 350, Width = 100, Top = 130, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { prompt.Close(); };
+            prompt.Controls.Add(textBox1);
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(textLabel1);
+            prompt.Controls.Add(textLabel2);
+            prompt.Controls.Add(textBox2);
+            prompt.AcceptButton = confirmation;
+            List<string> result = new List<string>();
+            //Console.WriteLine(textBox1.Text);
+            //Console.WriteLine(textBox2.Text);
+            var res = prompt.ShowDialog() == DialogResult.OK ? result : null;
+            result.Add(textBox1.Text);
+            result.Add(textBox2.Text);
+            if (res == null)
+                return null;
+            return result;
         }
     }
 }
