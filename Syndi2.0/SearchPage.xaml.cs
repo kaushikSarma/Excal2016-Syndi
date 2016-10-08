@@ -104,13 +104,44 @@ namespace Syndi2._0
             List<string> SearchList = Search.GetSearchList(PcList, query);
             SearchContainer.Children.Clear();
             int count = 0;
+            Regex DirectoryNameRegex = new Regex(@"(.*?" + query + @".*?)\\",RegexOptions.IgnoreCase);
+            Regex FileNameRegex = new Regex(query,RegexOptions.IgnoreCase);
+
+            HashSet<string> ListOfUniqDirectories = new HashSet<string>();
+            int prev = 0;
             foreach(var item in SearchList)
             {
-                Console.WriteLine(item);
+                
+                Match directoryName = DirectoryNameRegex.Match(item);
+                var lastNameArray = item.Split('\\');
+                Match fileName = FileNameRegex.Match(lastNameArray[lastNameArray.Length-1]);
+                
+                if (directoryName.Success)
+                {
+
+                    ListOfUniqDirectories.Add(directoryName.Groups[1].Value);
+                    if (ListOfUniqDirectories.ToArray().Length != prev)
+                    {
+                        count++;
+                        var tile = new ExplorerTile(ListOfUniqDirectories.ToArray()[prev], query);
+                        tile.DownloadThis.Click += (sender, ex) => DownloadItem(@tile.Path.Tag.ToString());
+                        SearchContainer.Children.Add(tile);
+
+                        prev = ListOfUniqDirectories.ToArray().Length;
+                    }
+                }
+                if (fileName.Success)
+                {
+                    count++;
+                    var tile = new ExplorerTile(item, query);
+                    tile.DownloadThis.Click += (sender, ex) => DownloadItem(@tile.Path.Tag.ToString());
+                    SearchContainer.Children.Add(tile);
+                }
+                /*
                 count++;
                 var tile = new ExplorerTile(item, query);
                 tile.DownloadThis.Click += (sender, ex) => DownloadItem(@tile.Path.Tag.ToString());
-                SearchContainer.Children.Add(tile);
+                SearchContainer.Children.Add(tile);*/
             }
             if(count == 0)
             {

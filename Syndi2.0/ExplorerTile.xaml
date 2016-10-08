@@ -10,7 +10,7 @@
         <Button x:Name="button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Style="{StaticResource FolderButton}">
             <StackPanel Orientation="Horizontal" Width="800" Height="80" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid Width="720" Height="80" Margin="0" VerticalAlignment="Stretch">
-                    <TextBlock x:Name="File" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="13.333" Margin="80,12,0,50" Width="630"/>
+                    <TextBlock x:Name="File" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="#99FFFFFF" FontSize="13.333" Margin="80,12,0,50" Width="630" FontWeight="Bold"/>
                     <TextBlock x:Name="Path" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="#66FFFFFF" FontSize="13.333" Margin="80,30,0,10" Height="40" Width="630"/>
                     <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="File" VerticalAlignment="Top" Height="18" Width="56" Foreground="#FF81C9FB" FontWeight="Bold" Margin="24,12,0,0"/>
                     <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="Location" VerticalAlignment="Top" Width="56" Foreground="#FF85FFB7" FontWeight="Bold" Margin="24,35,0,0"/>
