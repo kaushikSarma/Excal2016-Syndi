@@ -31,7 +31,7 @@ namespace Syndi2._0
         }
         public void OnWindowLoad(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(sPage);
+            MainFrame.Navigate(searchPage);
         }
         private void homeButtonClick(object sender, RoutedEventArgs e)
         {

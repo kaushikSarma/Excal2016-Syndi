@@ -17,7 +17,7 @@
             <Image Height="24" Width="24" HorizontalAlignment="Left" VerticalAlignment="Center" Source="Resource/SyndiIcon.png" Margin="11,18,0,17" Stretch="Fill" RenderTransformOrigin="0.446,0.461"/>
             <TextBlock x:Name="textBlock" Margin="46,11,0,18" TextWrapping="Wrap" Text="Syndi" Width="60" FontSize="24" Height="30" HorizontalAlignment="Left" Foreground="White"/>
             <Border Style="{StaticResource FolderButtonBorder}" Width="59" Height="59" HorizontalAlignment="Right" Margin="0">
-                <Button x:Name="button" Style="{StaticResource FolderButton}" Margin="0" Width="58" Height="58" ToolTipService.ToolTip="Refresh Page" Cursor="Hand" Click="RefreshButton_Click">
+                <Button x:Name="button" Style="{StaticResource FolderButton}" Margin="0" Width="58" Height="58" ToolTip="Refresh Page" Cursor="Hand" Click="RefreshButton_Click">
                     <Image x:Name="Refresh_Icon" Source="Resource/Icons/reload.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="27" Height="27"/>
                 </Button>
             </Border>
@@ -32,9 +32,9 @@
             <Button x:Name="searchPageButton" Height="64" Width="48" Margin="0" VerticalAlignment="Stretch" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Stretch" ToolTip="Search" Cursor="Hand" Click="searchButtonClick">
                 <Image x:Name="Search_Icon" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Source="Resource/Icons/search.png" Stretch="Fill" RenderTransformOrigin="0.457,0.486"/>
             </Button>
-            <Button x:Name="settingsPageButton" Height="64" Width="48" Margin="0" VerticalAlignment="Stretch" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Stretch" ToolTip="Settings" Cursor="Hand" Click="settingsButtonClick">
+            <Button x:Name="settingsPageButton" Height="64" Width="48" Margin="0" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Stretch" ToolTip="Settings" Cursor="Hand" Click="settingsButtonClick" VerticalAlignment="Bottom">
                 <Image x:Name="settings" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Source="Resource/Icons/settings.png" Stretch="Fill" RenderTransformOrigin="0.457,0.486"/>
-            </Button>            
+            </Button>
         </StackPanel>
         <DockPanel>
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="48,59,0,0"/>

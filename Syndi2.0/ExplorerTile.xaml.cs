@@ -23,6 +23,7 @@ namespace Syndi2._0
         public ExplorerTile(string path, string searchString)
         {
             InitializeComponent();
+            Path.Tag = path;
             HighlightText(path, searchString, Path);
             HighlightText(path.Substring(path.LastIndexOf('\\')+1), searchString, File);
         }
@@ -32,13 +33,14 @@ namespace Syndi2._0
             string s = path,s2, substr;
             int i = 0;
             search = search.ToLower();
-            while (s.Length > 0) {
+            do
+            {
                 i = s.ToLower().IndexOf(search);
                 if (i >= 0)
                 {
                     substr = s.Substring(i, search.Length);
                     s2 = s.Substring(0, i);
-                    if(s2.Length > 0) brokenPath.Add(s2);
+                    if (s2.Length > 0) brokenPath.Add(s2);
                     brokenPath.Add(substr);
                     s = s.Substring(i + search.Length);
                 }
@@ -46,8 +48,9 @@ namespace Syndi2._0
                 {
                     s2 = s;
                     s = "";
+                    brokenPath.Add(s2);
                 }
-            }
+            } while (s.Length > 0);
             var highlight = new Run();
             highlight.Background = new SolidColorBrush(Color.FromArgb(200,200,150,255));
             foreach(string cs in brokenPath)

@@ -15,20 +15,27 @@ namespace ListingPC
 
         public static long DirSize(DirectoryInfo d)
         {
-            long size = 0;
-            // Add file sizes.
-            FileInfo[] fis = d.GetFiles();
-            foreach (FileInfo fi in fis)
+
+            try {
+                long size = 0;
+                // Add file sizes.
+                FileInfo[] fis = d.GetFiles();
+                foreach (FileInfo fi in fis)
+                {
+                    size += fi.Length;
+                }
+                // Add subdirectory sizes.
+                DirectoryInfo[] dis = d.GetDirectories();
+                foreach (DirectoryInfo di in dis)
+                {
+                    size += DirSize(di);
+                }
+                return size;
+            }catch(Exception e)
             {
-                size += fi.Length;
+                Console.WriteLine("Folder not shared exception " + e);
+                return 0;
             }
-            // Add subdirectory sizes.
-            DirectoryInfo[] dis = d.GetDirectories();
-            foreach (DirectoryInfo di in dis)
-            {
-                size += DirSize(di);
-            }
-            return size;
         }
 
 
@@ -326,7 +333,7 @@ namespace ListingPC
             List<int> l = new List<int>();
             List<Testing> ans = new List<Testing>();
             int flag;
-            for (flag = 0; flag < n; flag += 64)
+            for (flag = 0; flag < n; flag += 4)
             {
                 l.Add(flag);
             }
@@ -342,7 +349,8 @@ namespace ListingPC
                 int counter = 0;
                 string NameOfPC;
                 var FullListArray = FullList.ToArray();
-                
+                //var done = new CountdownEvent(4);
+
                 for ( i = arr[flag]; i < arr[flag+1]; i++)
                 {
                     NameOfPC = "\\";
@@ -351,15 +359,21 @@ namespace ListingPC
                     command += NameOfPC;
 
                     doneEvents[counter] = new ManualResetEvent(false);
+                    //done.AddCount();
                     Testing t = new Testing(FullList, command, i, doneEvents[counter]);
                     testArray[counter] = t;
                     
                     counter += 1;
                     ThreadPool.QueueUserWorkItem(t.ThreadPoolCallback, i);
                 }
-                
-                WaitHandle.WaitAll(doneEvents);
-                
+
+                //WaitHandle.WaitAll(doneEvents);
+                //done.Signal();
+                //done.Wait();
+                foreach (WaitHandle handle in doneEvents)
+                {
+                    handle.WaitOne();
+                }
                 flag += 1;
             }
             return Testing.global.Result;

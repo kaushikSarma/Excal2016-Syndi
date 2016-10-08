@@ -1,0 +1,66 @@
+﻿<Page x:Class="Syndi2._0.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Syndi2._0"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="HomePage"
+      Loaded="OnPageLoad">
+    <Page.Background>
+        <ImageBrush ImageSource="Resource/Clouds.png" Opacity="0.2" AlignmentX="Left" AlignmentY="Top" Stretch="UniformToFill" Viewbox="0,0,1.5,1.5"></ImageBrush>
+    </Page.Background>
+    <ScrollViewer PanningDeceleration="0.003" PanningMode="VerticalOnly" PanningRatio="0.5">
+        <DockPanel>
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#CC000000" Offset="0"/>
+                        <GradientStop Offset="1" Color="#7F000000"/>
+                        <GradientStop Color="#33000000" Offset="0.261"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="PcName" Margin="0,30,0,0" TextWrapping="Wrap" Text="PC-Name" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" FontFamily="Segoe UI Light"/>
+                <Grid Margin="0,67,0,0" Height="113" VerticalAlignment="Top" HorizontalAlignment="Center" Width="220">
+                    <TextBlock x:Name="NumberOfConnections" Margin="104,10,0,0" TextWrapping="Wrap" Text="000" VerticalAlignment="Top" FontSize="48" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Foreground="White" Width="106" Height="73"/>
+                    <Image x:Name="Assets_Icons_ethernet_png" Height="65" Margin="34,10,0,0" Source="Resource/Icons/ethernet.png" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60"/>
+                    <TextBlock x:Name="textBlock1" Margin="0,0,0,2" VerticalAlignment="Bottom" Height="27" HorizontalAlignment="Center" FontFamily="Segoe UI Light" FontSize="20"><Run Foreground="White" Text="connections "/><Run x:Name="availableText" Foreground="#FFE8554E" FontWeight="Bold" FontFamily="Segoe UI" Text="unavailable"/></TextBlock>
+                </Grid>
+                <TextBlock x:Name="Avail" HorizontalAlignment="Left" Height="39" Margin="90,232,0,0" TextWrapping="Wrap" Text="Explore your connections" VerticalAlignment="Top" Width="258" FontSize="24" Foreground="White" FontFamily="Segoe UI Light"/>
+                <Grid Height="192" Margin="40,271,40,0" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="1172*"/>
+                        <ColumnDefinition Width="48"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BrowseLeftPc" Content="&lt;" Grid.Column="0" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" Width="48" Click="BrowseLeftPc_Click" Cursor="Hand"/>
+                    <Button x:Name="BrowseRightPc" Content="&gt;" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center" Cursor="Hand" Click="BrowseRightPc_Click"/>
+                    <ScrollViewer x:Name="PCScrollViewer" Grid.Column="1" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                        <DockPanel>
+                            <StackPanel x:Name="PcListTileContainer" Grid.Column="1" Orientation="Horizontal"/>
+                        </DockPanel>
+                    </ScrollViewer>
+                </Grid>
+                <TextBlock x:Name="Avail_Copy" HorizontalAlignment="Left" Height="39" Margin="90,484,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="459" FontSize="24" Foreground="White" FontFamily="Segoe UI Light"><Run Text="Files shared by "/><Run FontFamily="Segoe UI" x:Name="CurrentViewPc" Text="" FontWeight="Bold" FontSize="20"/></TextBlock>
+                <Grid Height="48" Margin="88,529,88,0"  VerticalAlignment="Top">
+                    <ScrollViewer PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Margin="0,0,0,2">
+                        <StackPanel x:Name="FolderPathPanel" Margin="0" Orientation="Horizontal"/>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Height="250" Margin="40,591,40,50"  VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="1172*"/>
+                        <ColumnDefinition Width="48"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BrowseLeftFiles" Content="&lt;" Grid.Column="0" FontFamily="MS Gothic" FontSize="32" Background="{x:Null}" Foreground="#7FFFFFFF" BorderBrush="{x:Null}" Margin="0,72" Height="48" VerticalAlignment="Center" Width="48" Cursor="Hand" Click="BrowseLeftFiles_Click"/>
+                    <Button x:Name="BrowseRightFiles" Content="&gt;" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" FontSize="32" FontFamily="MS Gothic" Margin="0,72" Height="48" VerticalAlignment="Center" Cursor="Hand" Click="BrowseRightFiles_Click"/>
+                    <ScrollViewer x:Name="PCFolderScroll" Grid.Column="1" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Margin="0,2,0,-2">
+                        <StackPanel x:Name="PcDetailsContainer" Margin="0" Orientation="Horizontal"></StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </ScrollViewer>
+</Page>

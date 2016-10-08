@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SearchLibrary;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Syndi2._0
 {
@@ -37,12 +39,14 @@ namespace Syndi2._0
             c.Foreground = ItemsColor;
             c.Content = "Select all" ;
             c.Click += (sender1, e) => this.SelectItem(sender1, e);
+            c.IsChecked = true;
             SelectPC.Items.Add(c);
             foreach (string PCName in PC[0])
             {
                 c = new CheckBox();
                 c.Content = PCName;
                 c.Foreground = ItemsColor;
+                c.IsChecked = true;
                 c.Click += (sender1, e) => this.SelectItem(sender1, e);
                 SelectPC.Items.Add(c);
             }
@@ -91,22 +95,119 @@ namespace Syndi2._0
             SearchContainer.Children.Clear();
             foreach (var item in SelectPC.Items)
             {
-                CheckBox ite= (CheckBox)item;
-                if(ite.IsChecked == true && ite.Content.ToString() != "Select all")
+                CheckBox ite = (CheckBox)item;
+                if (ite.IsChecked == true && ite.Content.ToString() != "Select all")
                 {
                     PcList.Add(ite.Content.ToString());
                 }
             }
             List<string> SearchList = Search.GetSearchList(PcList, query);
-            foreach(var item in SearchList)
+            List<string> InsideFolder = new List<string>();
+            foreach (var Pc in PcList)
             {
-                SearchContainer.Children.Add(new ExplorerTile(item, query));
+                List<string> Folders = NetworkScanner.Scan.IdentifyFolderNames(Pc);
+                foreach (var folder in Folders)
+                {
+                    Regex reg = new Regex(query);
+                    SegLibrary.Seperate.CurrSearch("\\\\" + Pc + "\\" + folder.Trim(), reg, InsideFolder);
+                    SearchList.AddRange(InsideFolder);
+                }
+            }
+            SearchContainer.Children.Clear();
+            int count = 0;
+            Regex DirectoryNameRegex = new Regex(@"(.*?" + query + @".*?)\\", RegexOptions.IgnoreCase);
+            Regex FileNameRegex = new Regex(query, RegexOptions.IgnoreCase);
+
+            HashSet<string> ListOfUniqDirectories = new HashSet<string>();
+            int prev = 0;
+            foreach (var item in SearchList)
+            {
+                //Console.WriteLine("Item = " + item);
+                Match directoryName = DirectoryNameRegex.Match(item);
+                var lastNameArray = item.Split('\\');
+                Match fileName = FileNameRegex.Match(lastNameArray[lastNameArray.Length - 1]);
+
+                if (directoryName.Success)
+                {
+
+                    ListOfUniqDirectories.Add(directoryName.Groups[1].Value);
+                    if (ListOfUniqDirectories.ToArray().Length != prev)
+                    {
+                        count++;
+                        var tile = new ExplorerTile(ListOfUniqDirectories.ToArray()[prev], query);
+                        tile.DownloadThis.Click += (sender, ex) => DownloadItem(@tile.Path.Tag.ToString());
+                        SearchContainer.Children.Add(tile);
+                        Console.WriteLine(ListOfUniqDirectories.ToArray()[prev]);
+                        prev = ListOfUniqDirectories.ToArray().Length;
+                    }
+                }
+                if (fileName.Success)
+                {
+                    ListOfUniqDirectories.Add(item);
+                    if (ListOfUniqDirectories.ToArray().Length != prev)
+                    {
+                        count++;
+                        var tile = new ExplorerTile(item, query);
+                        tile.DownloadThis.Click += (sender, ex) => DownloadItem(@tile.Path.Tag.ToString());
+                        Console.WriteLine(item);
+                        SearchContainer.Children.Add(tile);
+                        prev = ListOfUniqDirectories.ToArray().Length;
+                    }
+                }
+                /*
+                count++;
+                var tile = new ExplorerTile(item, query);
+                tile.DownloadThis.Click += (sender, ex) => DownloadItem(@tile.Path.Tag.ToString());
+                SearchContainer.Children.Add(tile);*/
+            }
+            if (count == 0)
+            {
+                TextBlock t = new TextBlock();
+                t.Text = "No Results to Display";
+                t.FontSize = 40;
+                t.HorizontalAlignment = HorizontalAlignment.Center;
+                t.Foreground = new SolidColorBrush(Color.FromArgb(100, 250, 250, 250));
+                SearchContainer.Children.Add(t);
             }
         }
 
         public void SearchButtonClick(object sender, RoutedEventArgs e)
         {
             SearchFolder(SearchField.SearchQuery.Text);
+        }
+        private async void DownloadItem(string path)
+        {
+            Console.WriteLine("Copying started");
+            await Task.Delay(5);
+            Console.WriteLine("Copying started after timer");
+            Console.WriteLine(path);
+            var destn = Properties.Settings.Default["Path"].ToString();
+            try
+            {
+                if (Directory.Exists(path))
+                {
+                    var AppendedPath = destn + "\\" + path.Split('\\')[path.Split('\\').Length - 1];
+                    foreach (string dirPath in Directory.GetDirectories(path, "*",
+                    SearchOption.AllDirectories))
+                        Directory.CreateDirectory(dirPath.Replace(path, AppendedPath));
+
+                    //Copy all the files & Replaces any files with the same name
+                    foreach (string newPath in Directory.GetFiles(path, "*.*",
+                        SearchOption.AllDirectories))
+                        File.Copy(newPath, newPath.Replace(path, AppendedPath), true);
+                }
+                else
+                {
+                    var destination = System.IO.Path.Combine(destn, System.IO.Path.GetFileName(path));
+                    System.IO.File.Copy(path, destination, true);
+                }
+                System.Windows.Forms.MessageBox.Show("Successfully downloaded files");
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Access Denied or Invalid Path");
+            }
+
         }
     }
 }

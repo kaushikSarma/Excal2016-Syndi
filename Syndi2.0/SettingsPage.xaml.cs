@@ -24,16 +24,21 @@ namespace Syndi2._0
         public SettingsPage()
         {
             InitializeComponent();
+            if (Properties.Settings.Default["Path"].ToString().Length > 0)
+            {
+                DefaultPath.Text = Properties.Settings.Default["Path"].ToString();
+            }
+
         }
 
         private void SetDefaultPath(object sender, RoutedEventArgs e)
         {
             var dlg1 = new Ionic.Utils.FolderBrowserDialogEx();
-            TextBlock DefaultPath = new TextBlock();
             dlg1.Description = "Select a folder";
             dlg1.ShowNewFolderButton = true;
             dlg1.ShowEditBox = true;
             dlg1.ShowBothFilesAndFolders = false;
+
             dlg1.ShowFullPathInEditBox = true;
             dlg1.RootFolder = System.Environment.SpecialFolder.MyComputer;
 
@@ -46,7 +51,6 @@ namespace Syndi2._0
                 DefaultPath.Text = path;
                 Properties.Settings.Default["Path"] = path;
                 Properties.Settings.Default.Save();
-
             }
         }
             
