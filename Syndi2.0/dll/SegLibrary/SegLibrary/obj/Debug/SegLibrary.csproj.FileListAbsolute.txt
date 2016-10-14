@@ -3,6 +3,7 @@ c:\users\ankit\documents\visual studio 2015\Projects\SegLibrary\SegLibrary\bin\D
 c:\users\ankit\documents\visual studio 2015\Projects\SegLibrary\SegLibrary\obj\Debug\SegLibrary.csprojResolveAssemblyReference.cache
 c:\users\ankit\documents\visual studio 2015\Projects\SegLibrary\SegLibrary\obj\Debug\SegLibrary.dll
 c:\users\ankit\documents\visual studio 2015\Projects\SegLibrary\SegLibrary\obj\Debug\SegLibrary.pdb
+<<<<<<< HEAD
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\dll\SegLibrary\SegLibrary\bin\Debug\SegLibrary.dll
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\dll\SegLibrary\SegLibrary\bin\Debug\SegLibrary.pdb
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\dll\SegLibrary\SegLibrary\obj\Debug\SegLibrary.csprojResolveAssemblyReference.cache
@@ -13,3 +14,5 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SegLibrary\SegLibrary\bin\Debug\SegLibra
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SegLibrary\SegLibrary\obj\Debug\SegLibrary.csprojResolveAssemblyReference.cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SegLibrary\SegLibrary\obj\Debug\SegLibrary.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SegLibrary\SegLibrary\obj\Debug\SegLibrary.pdb
+=======
+>>>>>>> 9efb8e42243f51850c1a22ecbcd33cd374ca75eb

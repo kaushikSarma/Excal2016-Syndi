@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Syndi2._0.Properties" GeneratedClassName="Settings">
   <Profiles />
@@ -6,4 +7,12 @@
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
+=======
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+>>>>>>> 9efb8e42243f51850c1a22ecbcd33cd374ca75eb
 </SettingsFile>

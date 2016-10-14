@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Syndi2.0
 
 
@@ -18,3 +19,25 @@ CustomTile.xaml;ExplorerTile.xaml;FolderTile.xaml;FolderTiles.xaml;HomePage.xaml
 
 False
 
+=======
+﻿Syndi2.0
+
+
+winexe
+C#
+.cs
+F:\Programming\C#\Syndi2.0\Syndi2.0\obj\Release\
+Syndi2._0
+none
+false
+TRACE
+F:\Programming\C#\Syndi2.0\Syndi2.0\App.xaml
+51582953529
+
+8-366816596
+17873409263
+CustomTile.xaml;HomePage.xaml;MainWindow.xaml;SharePage.xaml;Themes\Generic.xaml;
+
+False
+
+>>>>>>> 9efb8e42243f51850c1a22ecbcd33cd374ca75eb

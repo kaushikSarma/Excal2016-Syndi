@@ -1,9 +1,0 @@
-c:\users\rewanth1997\documents\visual studio 2010\Projects\Server\Server\bin\Debug\Server.exe
-c:\users\rewanth1997\documents\visual studio 2010\Projects\Server\Server\bin\Debug\Server.pdb
-c:\users\rewanth1997\documents\visual studio 2010\Projects\Server\Server\obj\x86\Debug\Server.exe
-c:\users\rewanth1997\documents\visual studio 2010\Projects\Server\Server\obj\x86\Debug\Server.pdb
-D:\Server\Server\obj\x86\Debug\Server.exe
-D:\Server\Server\obj\x86\Debug\Server.pdb
-D:\Server\Server\bin\Debug\Server.exe
-D:\Server\Server\bin\Debug\Server.pdb
-D:\Server\Server\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache

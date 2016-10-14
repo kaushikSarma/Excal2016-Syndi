@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -154,28 +155,36 @@ namespace Syndi2._0
         public async void GrantAccess(string name)
         {
             await Task.Delay(5);
-            List<string> accessToken = Prompt.ShowDialog();
-            Console.WriteLine("____________________________GrantAccess_________________________________");
-            Console.WriteLine(name);
-            Console.WriteLine(accessToken.ToArray()[0]);
-            Console.WriteLine(accessToken.ToArray()[1]);
-            if(accessToken==null)
+            try
             {
-                System.Windows.Forms.MessageBox.Show("Invalid Credentials");
-                return;
-            }
-            if (accessToken.Count==2)
-            {
-                bool output = NetworkScanner.Scan.ShowFiles(name,accessToken.ToArray()[0], accessToken.ToArray()[1]);
-                if (output)
-                {
-                    PopulatePc();
-                }
-                else
+                List<string> accessToken = Prompt.ShowDialog();
+                Console.WriteLine("____________________________GrantAccess_________________________________");
+                Console.WriteLine(name);
+                Console.WriteLine(accessToken.ToArray()[0]);
+                Console.WriteLine(accessToken.ToArray()[1]);
+                if (accessToken == null)
                 {
                     System.Windows.Forms.MessageBox.Show("Invalid Credentials");
+                    return;
+                }
+                if (accessToken.Count == 2)
+                {
+                    bool output = NetworkScanner.Scan.ShowFiles(name, accessToken.ToArray()[0], accessToken.ToArray()[1]);
+                    if (output)
+                    {
+                        PopulatePc();
+                    }
+                    else
+                    {
+                        System.Windows.Forms.MessageBox.Show("Invalid Credentials");
+                    }
                 }
             }
+            catch(Exception)
+            {
+
+            }
+            
 
         }
         public async void Display(CustomTile sender)
@@ -400,3 +409,48 @@ namespace Syndi2._0
         }
     }
 }
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.DirectoryServices;
+    
+namespace Syndi2._0
+{
+    /// <summary>
+    /// Interaction logic for HomePage.xaml
+    /// </summary>
+    public partial class HomePage : Page
+    {
+        public HomePage()
+        {
+            InitializeComponent();
+            string netBiosName = System.Environment.MachineName;
+            List < List < string >> PcList = NetworkScanner.Scan.RetrievePCNames();
+            PcName.Text = netBiosName;
+            NumberOfConnections.Text = ((PcList[0].Count + PcList[1].Count) < 10 ? "0" : "") + (PcList[0].Count + PcList[1].Count).ToString();
+            string s = "";
+            foreach (List<string> L in PcList)
+            {
+                foreach(string name in L)
+                {
+                    s += "\n" + name;
+                    PcListTileContainer.Children.Add(new CustomTile(name));
+                }
+            }
+            Console.Write(s);
+        }
+    }
+}
+>>>>>>> 9efb8e42243f51850c1a22ecbcd33cd374ca75eb
