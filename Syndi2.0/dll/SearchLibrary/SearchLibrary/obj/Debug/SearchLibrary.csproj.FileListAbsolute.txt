@@ -5,7 +5,6 @@ C:\Users\Ankit\Documents\Visual Studio 2015\Projects\SearchLibrary\SearchLibrary
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\SearchLibrary\SearchLibrary\bin\Debug\NetworkScanner.pdb
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.dll
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.pdb
-<<<<<<< HEAD
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.pdb
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.dll
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\bin\Debug\SearchLibrary.dll
@@ -21,5 +20,3 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SearchLibrary\SearchLibrary\bin\Debug\Ne
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.csprojResolveAssemblyReference.cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.pdb
-=======
->>>>>>> 9efb8e42243f51850c1a22ecbcd33cd374ca75eb

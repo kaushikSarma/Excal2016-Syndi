@@ -1,0 +1,43 @@
+﻿<Window x:Class="Syndi2._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Syndi2._0"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Title="Syndi" Height="768" Width="1368" FontFamily="Segoe UI Light"
+        Loaded="OnWindowLoad">
+    <Window.Background>
+        <ImageBrush ImageSource="Resource/SpaceBg.png" Stretch="UniformToFill"></ImageBrush>
+    </Window.Background>
+    <Grid d:LayoutOverrides="TopPosition, BottomPosition">
+        <Grid Height="59" VerticalAlignment="Top" Background="#FF131313">
+            <Image Height="24" Width="24" HorizontalAlignment="Left" VerticalAlignment="Center" Source="Resource/SyndiIcon.png" Margin="11,18,0,17" Stretch="Fill" RenderTransformOrigin="0.446,0.461"/>
+            <TextBlock x:Name="textBlock" Margin="46,11,0,18" TextWrapping="Wrap" Text="Syndi" Width="60" FontSize="24" Height="30" HorizontalAlignment="Left" Foreground="White"/>
+            <Border Style="{StaticResource FolderButtonBorder}" Width="59" Height="59" HorizontalAlignment="Right" Margin="0">
+                <Button x:Name="button" Style="{StaticResource FolderButton}" Margin="0" Width="58" Height="58" ToolTip="Refresh Page" Cursor="Hand" Click="RefreshButton_Click">
+                    <Image x:Name="Refresh_Icon" Source="Resource/Icons/reload.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="27" Height="27"/>
+                </Button>
+            </Border>
+        </Grid>
+        <StackPanel Width="48" Background="#FF212121" Margin="0,59,0,0" HorizontalAlignment="Left">
+            <Button Height="64" Width="48" Margin="0" VerticalAlignment="Stretch" BorderThickness="0" HorizontalAlignment="Right" Background="{x:Null}" Click="homeButtonClick" ToolTip="Home" Cursor="Hand">
+                <Image x:Name="Home_Icon" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Resource/Icons/home.png" Stretch="Fill"/>
+            </Button>
+            <Button Height="64" Width="48" Margin="0" VerticalAlignment="Stretch" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Stretch" Click="shareButtonClick" ToolTip="Share your folders" Cursor="Hand">
+                <Image x:Name="Share_Icon" Height="24" Width="24" HorizontalAlignment="Center" Source="Resource/Icons/molecule.png" Stretch="Fill" VerticalAlignment="Center" RenderTransformOrigin="0.457,0.486"/>
+            </Button>
+            <Button x:Name="searchPageButton" Height="64" Width="48" Margin="0" VerticalAlignment="Stretch" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Stretch" ToolTip="Search" Cursor="Hand" Click="searchButtonClick">
+                <Image x:Name="Search_Icon" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Source="Resource/Icons/search.png" Stretch="Fill" RenderTransformOrigin="0.457,0.486"/>
+            </Button>
+            <Button x:Name="settingsPageButton" Height="64" Width="48" Margin="0" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Stretch" ToolTip="Settings" Cursor="Hand" Click="settingsButtonClick" VerticalAlignment="Bottom">
+                <Image x:Name="settings" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Source="Resource/Icons/settings.png" Stretch="Fill" RenderTransformOrigin="0.457,0.486"/>
+            </Button>
+        </StackPanel>
+        <DockPanel>
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="48,59,0,0"/>
+        </DockPanel>
+    </Grid>
+</Window>

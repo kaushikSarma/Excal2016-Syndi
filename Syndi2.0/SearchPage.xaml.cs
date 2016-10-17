@@ -93,10 +93,6 @@ namespace Syndi2._0
             await Task.Delay(10);
             List<string> PcList = new List<string>();
             SearchContainer.Children.Clear();
-            Console.WriteLine("_____________________Search Debug ______________________________");
-            Console.WriteLine(SearchField.SearchQuery.Text);
-            if (query == "")
-                return;
             foreach (var item in SelectPC.Items)
             {
                 CheckBox ite = (CheckBox)item;
@@ -177,10 +173,6 @@ namespace Syndi2._0
 
         public void SearchButtonClick(object sender, RoutedEventArgs e)
         {
-            if (SearchField.SearchQuery.Text == "")
-                return;
-            Console.WriteLine("_____________________Search Debug ______________________________");
-            Console.WriteLine(SearchField.SearchQuery.Text);
             SearchFolder(SearchField.SearchQuery.Text);
         }
         private async void DownloadItem(string path)
