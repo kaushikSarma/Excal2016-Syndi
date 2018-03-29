@@ -1,0 +1,3 @@
+/.vs/*
+Syndi2.0/obj/*
+Syndi2.0/bin/*
