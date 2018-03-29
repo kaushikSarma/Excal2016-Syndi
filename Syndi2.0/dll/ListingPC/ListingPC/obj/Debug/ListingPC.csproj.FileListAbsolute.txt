@@ -7,3 +7,8 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\dll\ListingPC\ListingPC\bin\Debug\ListingPC.
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\ListingPC\ListingPC\obj\Debug\ListingPC.csprojResolveAssemblyReference.cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\ListingPC\ListingPC\obj\Debug\ListingPC.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\ListingPC\ListingPC\obj\Debug\ListingPC.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\ListingPC\ListingPC\bin\Debug\ListingPC.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\ListingPC\ListingPC\obj\Debug\ListingPC.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\ListingPC\ListingPC\obj\Debug\ListingPC.csprojResolveAssemblyReference.cache
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\ListingPC\ListingPC\bin\Debug\ListingPC.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\ListingPC\ListingPC\obj\Debug\ListingPC.dll

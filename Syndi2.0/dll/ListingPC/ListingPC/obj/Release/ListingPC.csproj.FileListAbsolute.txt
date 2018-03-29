@@ -1,0 +1,4 @@
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\ListingPC\ListingPC\bin\Release\ListingPC.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\ListingPC\ListingPC\bin\Release\ListingPC.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\ListingPC\ListingPC\obj\Release\ListingPC.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\ListingPC\ListingPC\obj\Release\ListingPC.pdb

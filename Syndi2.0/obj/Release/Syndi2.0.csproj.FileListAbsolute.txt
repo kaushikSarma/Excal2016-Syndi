@@ -166,3 +166,45 @@ C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\ob
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2.0.csproj.GenerateResource.Cache
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2.0.exe
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2.0.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\bin\Release\Syndi2.0.exe.config
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\bin\Release\Syndi2.0.exe
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\bin\Release\Syndi2.0.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\bin\Release\ListingPC.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\bin\Release\NetworkScanner.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\bin\Release\SearchLibrary.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\bin\Release\SegLibrary.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\bin\Release\ShareLibrary.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2.0.csprojResolveAssemblyReference.cache
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\CustomTile.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\ExplorerTile.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\FolderTile.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\FolderTiles.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\HomePage.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\MainWindow.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\NavigationButton.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\SearchBox.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\SearchPage.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\SettingsPage.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\SharePage.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\App.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\GeneratedInternalTypeHelper.g.cs
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2.0_MarkupCompile.cache
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2.0_MarkupCompile.lref
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\App.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\CustomTile.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\ExplorerTile.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\FolderTile.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\FolderTiles.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\HomePage.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\MainWindow.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\NavigationButton.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\SearchBox.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\SearchPage.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\SettingsPage.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\SharePage.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\Themes\Generic.baml
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2.0.g.resources
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2._0.Properties.Resources.resources
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2.0.csproj.GenerateResource.Cache
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2.0.exe
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\obj\Release\Syndi2.0.pdb

@@ -12,3 +12,7 @@ C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\dl
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\dll\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.dll
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\dll\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.pdb
 C:\Users\Ankit\Documents\Visual Studio 2015\Projects\Excal2016-Syndi\Syndi2.0\dll\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.csprojResolveAssemblyReference.cache
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\NetworkScanner\NetworkScanner\bin\Debug\NetworkScanner.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\NetworkScanner\NetworkScanner\bin\Debug\NetworkScanner.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.pdb

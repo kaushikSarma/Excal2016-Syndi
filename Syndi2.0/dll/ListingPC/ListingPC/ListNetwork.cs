@@ -7,16 +7,21 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Net;
 using System.Threading.Tasks;
+using System.Net.NetworkInformation;
+
+
 
 namespace ListingPC
 {
 
-    public class FolderSize {
+    public class FolderSize
+    {
 
         public static long DirSize(DirectoryInfo d)
         {
 
-            try {
+            try
+            {
                 long size = 0;
                 // Add file sizes.
                 FileInfo[] fis = d.GetFiles();
@@ -31,7 +36,8 @@ namespace ListingPC
                     size += DirSize(di);
                 }
                 return size;
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine("Folder not shared exception " + e);
                 return 0;
@@ -80,8 +86,8 @@ namespace ListingPC
             SharedFolderSize s;
             try
             {
-                
-                for (int v = 0; v < pcList.ToArray().Length + 3; )
+
+                for (int v = 0; v < pcList.ToArray().Length + 3;)
                 {
                     name1 = pcList.ToArray()[v].Name;
                     name2 = pcList.ToArray()[v + 1].Name;
@@ -120,7 +126,7 @@ namespace ListingPC
             }
             return ListSize;
         }
-    
+
     }
 
     public class Testing
@@ -131,7 +137,7 @@ namespace ListingPC
         private List<string> FullList;
         private static string NameOfPC;
         private static string TypeOfPC;
-        
+
         //Creating a struct to return all the details of the PC.
         public struct DataOfPC
         {
@@ -154,7 +160,7 @@ namespace ListingPC
                 return TypeOfPC;
             }
         }
-        
+
         public Testing(List<string> _FullList, string command, int a, ManualResetEvent doneEvent)
         {
             FullList = _FullList;
@@ -303,32 +309,38 @@ namespace ListingPC
 
     public class ListNetwork
     {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("[[[[[[[[[[[[");
+            ScanNetwork();
+            Console.Read();
+        }
 
-            public static List<Testing.DataOfPC> ScanNetwork(){   
-        
-            string command = "/C net view /all";
+        public static List<Testing.DataOfPC> ScanNetwork()
+        {
+            string command = "/C arp -a";
             string outputDump = Testing.ViewCommandLineResult(command);
-
-            var items = Regex.Split(outputDump, @"\\");
-
             List<string> FullList = new List<string>();
-            int i = 2;
-
-            while (i < items.Length)
+            
+            // Iterate all other PCs
+            foreach (Match match in Regex.Matches(outputDump, @"([0-9\.]+){4} [^\-]"))
             {
-                /*
-                 Seperating the list of PC's from the output string to get only the PC names.
-                 */
-                var s = items[i];
-                /*
-                 Sometimes we get the Remark of some PC's , so inorder to avoid them from getting 
-                 * into the main list regex is used as space and its seperated.
-                 */
-                var Name = Regex.Split(s, @" ");
-                FullList.Add(Name[0]);
-                i = i + 2;
+                Console.WriteLine(match.ToString());
+                //Console.WriteLine(Regex.IsMatch(match.ToString(), @"2[2-5][4-5]\.([0-9\.]+){3}"));
+                //Console.WriteLine(Regex.IsMatch(match.ToString(), @"([0-9\.]+){3}\.255"));
+                if (Regex.IsMatch(match.ToString(), @"2[2-5][4-5]\.([0-9\.]+){3}") || Regex.IsMatch(match.ToString(), @"([0-9\.]+){3}\.255") || Regex.IsMatch(match.ToString(), @"([0-9\.]+){3}\.0"))
+                {
+                    Console.WriteLine("This is a multicast address range");
+                }
+                else
+                {
+                    FullList.Add(match.ToString());
+                }
             }
-     
+
+            // Adds owner host to the list of PCs
+            FullList.Add(Dns.GetHostName().ToString());
+
             int n = FullList.ToArray().Length;
             List<int> l = new List<int>();
             List<Testing> ans = new List<Testing>();
@@ -341,17 +353,18 @@ namespace ListingPC
             var arr = l.ToArray();
             flag = 0;
 
-            
-            while (flag < arr.Length - 1) {    
-                ManualResetEvent[] doneEvents = new ManualResetEvent[arr[flag+1]-arr[flag]];
+
+            while (flag < arr.Length - 1)
+            {
+                ManualResetEvent[] doneEvents = new ManualResetEvent[arr[flag + 1] - arr[flag]];
                 Testing[] testArray = new Testing[arr[flag + 1] - arr[flag]];
 
                 int counter = 0;
                 string NameOfPC;
                 var FullListArray = FullList.ToArray();
                 //var done = new CountdownEvent(4);
-
-                for ( i = arr[flag]; i < arr[flag+1]; i++)
+                int i;
+                for (i = arr[flag]; i < arr[flag + 1]; i++)
                 {
                     NameOfPC = "\\";
                     NameOfPC += FullListArray[i];
@@ -362,7 +375,7 @@ namespace ListingPC
                     //done.AddCount();
                     Testing t = new Testing(FullList, command, i, doneEvents[counter]);
                     testArray[counter] = t;
-                    
+
                     counter += 1;
                     ThreadPool.QueueUserWorkItem(t.ThreadPoolCallback, i);
                 }
@@ -377,7 +390,7 @@ namespace ListingPC
                 flag += 1;
             }
             return Testing.global.Result;
-       }
+        }
 
     }
 }

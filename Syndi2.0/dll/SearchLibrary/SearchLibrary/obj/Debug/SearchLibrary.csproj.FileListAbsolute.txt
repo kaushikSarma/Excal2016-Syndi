@@ -20,3 +20,11 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SearchLibrary\SearchLibrary\bin\Debug\Ne
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.csprojResolveAssemblyReference.cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\bin\Debug\SearchLibrary.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\bin\Debug\SearchLibrary.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\bin\Debug\NetworkScanner.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\bin\Debug\SegLibrary.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\bin\Debug\NetworkScanner.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.csprojResolveAssemblyReference.cache
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SearchLibrary\SearchLibrary\obj\Debug\SearchLibrary.pdb

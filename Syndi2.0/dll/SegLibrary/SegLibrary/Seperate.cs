@@ -29,7 +29,7 @@ namespace SegLibrary
         public static List<string> GetDocs(string path)
         {
             List<string> result = new List<string>();
-            var regex = new Regex(@".*\.(docx|xls|txt|pdf|doc|ppt|one|pub|xlsx|pptx|doc|vsdx|accdb|dot|maw)", RegexOptions.IgnoreCase);
+            var regex = new Regex(@".*\.(docx|xls|txt|pdf|doc|ppt|one|pub|xlsx|pptx|doc|vsdx|accdb|dot|maw|c|cpp|as|h|asm)", RegexOptions.IgnoreCase);
             CurrSearch(path, regex, result);
             DirSearch(path, regex, result);
             return result;
@@ -83,5 +83,6 @@ namespace SegLibrary
                 Console.WriteLine(excpt.Message);
             }
         }
+
     }
 }

@@ -13,3 +13,8 @@ F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SegLibrary\SegLibrary\bin\Debug\SegLibra
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SegLibrary\SegLibrary\obj\Debug\SegLibrary.csprojResolveAssemblyReference.cache
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SegLibrary\SegLibrary\obj\Debug\SegLibrary.dll
 F:\Programming\C#\Syndi2.0\Syndi2.0\dll\SegLibrary\SegLibrary\obj\Debug\SegLibrary.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SegLibrary\SegLibrary\bin\Debug\SegLibrary.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SegLibrary\SegLibrary\bin\Debug\SegLibrary.pdb
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SegLibrary\SegLibrary\obj\Debug\SegLibrary.csprojResolveAssemblyReference.cache
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SegLibrary\SegLibrary\obj\Debug\SegLibrary.dll
+E:\Development\GitHub\Excal2016-Syndi\Syndi2.0\dll\SegLibrary\SegLibrary\obj\Debug\SegLibrary.pdb

@@ -21,6 +21,11 @@ namespace NetworkScanner
             public long SizeOfSharedFolders;
         }
 
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Hello");
+        }
+
         //Fetches all the details of any PC.
         public static List<StructDataOfPC> DetailsOfPC()
         {
@@ -212,20 +217,26 @@ namespace NetworkScanner
         public static List<List<string>> RetrievePCNames()
         {
 
-            string command = "/C net view /all";
+            string command = "/C arp -a";
             string outputDump = ViewCommandLineResult(command);
-            var items = Regex.Split(outputDump, @"\\");
-
             List<string> FullList = new List<string>();
-            int i = 2;
 
-            while (i < items.Length)
+            // Iterate all other PCs
+            foreach (Match match in Regex.Matches(outputDump, @"([0-9\.]+){4} [^\-]"))
             {
-                var s = items[i];
-                var Name = Regex.Split(s, @" ");
-                FullList.Add(Name[0]);
-                i = i + 2;
+                Console.WriteLine(match.ToString());
+                if (Regex.IsMatch(match.ToString(), @"2[2-5][4-5]\.([0-9\.]+){3}") || Regex.IsMatch(match.ToString(), @"([0-9\.]+){3}\.255") || Regex.IsMatch(match.ToString(), @"([0-9\.]+){3}\.0"))
+                {
+                    Console.WriteLine("This is a multicast address range");
+                }
+                else
+                {
+                    FullList.Add(match.ToString());
+                }
             }
+
+            // Adds owner host to the list of PCs
+            FullList.Add(Dns.GetHostName().ToString());
 
 
             var FullListArray = FullList.ToArray();
