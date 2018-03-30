@@ -311,7 +311,6 @@ namespace ListingPC
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("[[[[[[[[[[[[");
             ScanNetwork();
             Console.Read();
         }
@@ -325,16 +324,16 @@ namespace ListingPC
             // Iterate all other PCs
             foreach (Match match in Regex.Matches(outputDump, @"([0-9\.]+){4} [^\-]"))
             {
-                Console.WriteLine(match.ToString());
+                Console.WriteLine(match.ToString().Trim());
                 //Console.WriteLine(Regex.IsMatch(match.ToString(), @"2[2-5][4-5]\.([0-9\.]+){3}"));
                 //Console.WriteLine(Regex.IsMatch(match.ToString(), @"([0-9\.]+){3}\.255"));
-                if (Regex.IsMatch(match.ToString(), @"2[2-5][4-5]\.([0-9\.]+){3}") || Regex.IsMatch(match.ToString(), @"([0-9\.]+){3}\.255") || Regex.IsMatch(match.ToString(), @"([0-9\.]+){3}\.0"))
+                if (Regex.IsMatch(match.ToString().Trim(), @"2[2-5][4-5]\.([0-9\.]+){3}") || Regex.IsMatch(match.ToString().Trim(), @"([0-9\.]+){3}\.255") || Regex.IsMatch(match.ToString().Trim(), @"([0-9\.]+){3}\.0"))
                 {
                     Console.WriteLine("This is a multicast address range");
                 }
                 else
                 {
-                    FullList.Add(match.ToString());
+                    FullList.Add(match.ToString().Trim());
                 }
             }
 
